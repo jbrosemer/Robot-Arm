@@ -3,6 +3,7 @@
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 import turtle
+import math
 from adafruit_servokit import ServoKit
 t = turtle.Turtle()
 # declaring servo kit
@@ -19,14 +20,18 @@ t.goto(0, 0)
 
 file = open("alphabet.txt")
 alphabet = file.read()
+# x offset from origin
+xoff = 0
+# y offset from paper
+yoff = 2
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 letters = alphabet.split(';')
 j = 0
 #theta direction servo
 kit.servo[0].angle = 90
-#r direction servo
+# r direction servo
 kit.servo[1].angle = 0
-#dump servo
+# dump servo
 kit.servo[2].angle = 180
 while j < j_index:
     letter = input('Please input the letter you want to write: ')
@@ -67,6 +72,11 @@ while j < j_index:
 
                 y = eval(function[1])
                 t.goto(x*100 + offset, y*100)
+                if (x*100 + offset) != 0:
+                    theta = math.atan(((y+yoff)*100)/(x*100 + offset))
+                    print(theta*(180/math.pi))
+                else:
+                    theta = (math.pi)/2
                 t.penup()
                 if round(x*100) % 18 == 0:
                     t.pendown()
@@ -93,9 +103,12 @@ while j < j_index:
                     y = eval(function[1])
                     t.goto(x * 100 + offset, y * 100)
                     t.penup()
+                    kit.servo[2].angle = 180
                     if round(x * 100) % 25 == 0:
                         t.pendown()
+                        kit.servo[2].angle = 0
                     if x >= UB - 0.02:
+                        kit.servo[2].angle = 0
                         t.pendown()
                     x += 0.01
                     if (x > max):
