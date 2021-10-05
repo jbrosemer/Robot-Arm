@@ -119,6 +119,8 @@ while j < j_index:
                         dump = True
                 elif y >= UB-0.02:
                     t.pendown()
+                    if not dump:
+                        dump = True
                     kit.servo[2].angle = 0
                 else:
                     if dump:
