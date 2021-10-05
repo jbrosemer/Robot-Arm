@@ -33,6 +33,7 @@ kit.servo[0].angle = 90
 kit.servo[1].angle = 0
 # dump servo
 kit.servo[2].angle = 180
+dump = False
 while j < j_index:
     letter = input('Please input the letter you want to write: ')
     jj = 0
@@ -78,13 +79,21 @@ while j < j_index:
                 else:
                     theta = (math.pi)/2
                 t.penup()
-                kit.servo[2].angle = 180
                 if round(x*100) % 18 == 0:
                     t.pendown()
-                    kit.servo[2].angle = 0
+                    if not dump:
+                        kit.servo[2].angle = 0
+                        dump = True
                 if x >= UB-0.01:
                     t.pendown()
+                    if not dump:
+                        kit.servo[2].angle = 0
+                        dump = True
                     kit.servo[2].angle = 0
+                else:
+                    if dump:
+                        kit.servo[2].angle = 180
+                        dump = False
                 x += 0.005
                 if(x>max):
                     max = x
