@@ -91,20 +91,20 @@ while j < j_index:
                         print('here1')
                         kit.servo[2].angle = 0
                         dump = True
-                        xinc = 0.002
+                        xinc = 0.001
 
                 elif x >= UB-0.01:
                     t.pendown()
                     if not dump:
                         dump = True
-                        xinc = 0.002
+                        xinc = 0.001
                     kit.servo[2].angle = 0
                 else:
                     if dump:
                         print('here2')
                         kit.servo[2].angle = 180
                         dump = False
-                        xinc = 0.006
+                        xinc = 0.01
                 x += xinc
                 if(x>max):
                     max = x
