@@ -149,7 +149,7 @@ while j < j_index:
         t.penup()
         i += 1
     offset = offset + max*100 + 50
-    kit.servo[0] = 90
+    kit.servo[0].angle = 90
     j += 1
 t.goto(0,0)
 turtle.exitonclick()
