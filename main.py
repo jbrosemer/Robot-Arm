@@ -76,7 +76,7 @@ while j < j_index:
             while x<=UB:
                 y = eval(function[1])
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-                x += 0.001
+                x += 0.0005
                 if r > rmax:
                     rmax = r
             x = LB
