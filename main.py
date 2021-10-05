@@ -75,12 +75,12 @@ while j < j_index:
                 if (x*100 + offset) != 0:
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
-                    theta = math.pi/2*180/math.pi
+                    theta = 90
                 print(theta)
                 if theta < 0:
-                    kit.servo[0].angle = theta
+                    kit.servo[0].angle = 180 + theta
                 else:
-                    kit.servo[0].angle = 180-theta
+                    kit.servo[0].angle = theta
                 t.goto(x*100 + offset, y*100)
                 t.penup()
                 print(round(x * 100))
