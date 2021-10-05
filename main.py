@@ -113,11 +113,21 @@ while j < j_index:
                 kit.servo[2].angle = 180
                 if round(y*100) % 25 == 0:
                     t.pendown()
-                    kit.servo[2].angle = 0
-                if y >= UB-0.02:
+                    if not dump:
+                        print('here1')
+                        kit.servo[2].angle = 0
+                        dump = True
+                elif y >= UB-0.02:
                     t.pendown()
                     kit.servo[2].angle = 0
+                else:
+                    if dump:
+                        print('here2')
+                        kit.servo[2].angle = 180
+                        dump = False
                 y += 0.001
+
+
         else:
             if lowerbound[0] == 'x':
                 x = LB
