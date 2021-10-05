@@ -85,7 +85,7 @@ while j < j_index:
                         print('here1')
                         kit.servo[2].angle = 0
                         dump = True
-                if x >= UB-0.01:
+                elif x >= UB-0.01:
                     t.pendown()
                     if not dump:
                         kit.servo[2].angle = 0
