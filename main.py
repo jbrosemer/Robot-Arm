@@ -94,7 +94,7 @@ while j < j_index:
                     if dump:
                         kit.servo[2].angle = 180
                         dump = False
-                x += 0.005
+                x += 0.0005
                 if(x>max):
                     max = x
         elif function[0] == 'x':
@@ -110,7 +110,7 @@ while j < j_index:
                 if y >= UB-0.02:
                     t.pendown()
                     kit.servo[2].angle = 0
-                y += 0.01
+                y += 0.001
         else:
             if lowerbound[0] == 'x':
                 x = LB
@@ -125,7 +125,7 @@ while j < j_index:
                     if x >= UB - 0.02:
                         kit.servo[2].angle = 0
                         t.pendown()
-                    x += 0.01
+                    x += 0.001
                     if (x > max):
                         max = x
             else:
@@ -138,7 +138,7 @@ while j < j_index:
                         t.pendown()
                     if y >= UB - 0.02:
                         t.pendown()
-                    y += 0.01
+                    y += 0.001
         t.penup()
         i += 1
     offset = offset + max*100 + 50
