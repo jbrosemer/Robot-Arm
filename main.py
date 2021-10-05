@@ -126,21 +126,21 @@ while j < j_index:
             y = LB
             while y <= UB:
                 x = eval(function[1])
+                print("y = " + str(y))
                 if (x*100 + offset) != 0:
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
                     theta = 90
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-                print("r = " + str(r))
+                # print("r = " + str(r))
                 if theta < 0:
                     kit.servo[0].angle = 180 + theta
                 else:
                     kit.servo[0].angle = theta
                 kit.servo[1].angle = 180 * (r / rlimit)
-                print("r-angle " + str(180*(r / rlimit)))
+                # print("r-angle " + str(180*(r / rlimit)))
                 t.goto(x * 100 + offset, y * 100)
                 t.penup()
-                print(round(y * 100))
                 if round(y*100) % 25 == 0:
                     t.pendown()
                     if not dump:
@@ -168,6 +168,7 @@ while j < j_index:
                 x = LB
                 while x <= UB:
                     y = eval(function[1])
+                    print("y = " + str(y))
                     t.goto(x * 100 + offset, y * 100)
                     t.penup()
                     kit.servo[2].angle = 180
