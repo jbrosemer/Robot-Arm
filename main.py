@@ -76,6 +76,7 @@ while j < j_index:
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
                     theta = math.pi/2*180/math.pi
+                print(theta)
                 if theta < 0:
                     kit.servo[0].angle = theta
                 else:
