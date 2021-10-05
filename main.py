@@ -104,7 +104,7 @@ while j < j_index:
                         print('here2')
                         kit.servo[2].angle = 180
                         dump = False
-                        xinc = 0.02
+                        xinc = 0.006
                 x += xinc
                 if(x>max):
                     max = x
