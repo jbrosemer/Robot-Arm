@@ -78,10 +78,13 @@ while j < j_index:
                 else:
                     theta = (math.pi)/2
                 t.penup()
+                kit.servo[2].angle = 180
                 if round(x*100) % 18 == 0:
                     t.pendown()
+                    kit.servo[2].angle = 0
                 if x >= UB-0.01:
                     t.pendown()
+                    kit.servo[2].angle = 0
                 x += 0.005
                 if(x>max):
                     max = x
