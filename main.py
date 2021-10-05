@@ -23,7 +23,7 @@ alphabet = file.read()
 # x offset from origin
 xoff = 0
 # y offset from paper
-yoff = 2
+yoff = 4
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 letters = alphabet.split(';')
 j = 0
@@ -72,11 +72,15 @@ while j < j_index:
             while x <= UB:
 
                 y = eval(function[1])
-                t.goto(x*100 + offset, y*100)
                 if (x*100 + offset) != 0:
-                    theta = math.atan(((y+yoff)*100)/(x*100 + offset))
+                    theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
-                    theta = (math.pi)/2
+                    theta = math.pi/2*180/math.pi
+                if theta < 0:
+                    kit.servo[0].angle = theta
+                else:
+                    kit.servo[0].angle = 180-theta
+                t.goto(x*100 + offset, y*100)
                 t.penup()
                 print(round(x * 100))
                 if round(x*100) % 18 == 0:
