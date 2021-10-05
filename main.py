@@ -91,10 +91,13 @@ while j < j_index:
                 x = eval(function[1])
                 t.goto(x * 100 + offset, y * 100)
                 t.penup()
+                kit.servo[2].angle = 180
                 if round(y*100) % 25 == 0:
                     t.pendown()
+                    kit.servo[2].angle = 0
                 if y >= UB-0.02:
                     t.pendown()
+                    kit.servo[2].angle = 0
                 y += 0.01
         else:
             if lowerbound[0] == 'x':
