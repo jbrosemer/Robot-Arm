@@ -93,7 +93,6 @@ while j < j_index:
                 elif x >= UB-0.01:
                     t.pendown()
                     if not dump:
-                        kit.servo[2].angle = 0
                         dump = True
                     kit.servo[2].angle = 0
                 else:
@@ -111,6 +110,7 @@ while j < j_index:
                 t.goto(x * 100 + offset, y * 100)
                 t.penup()
                 kit.servo[2].angle = 180
+                print(round(y * 100))
                 if round(y*100) % 25 == 0:
                     t.pendown()
                     if not dump:
