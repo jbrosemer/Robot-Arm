@@ -161,9 +161,8 @@ while j < j_index:
                         dump = False
                         yinc = 0.02
                 y += yinc
-                if r > rmax:
-                    rmax = r
-
+                if x>max:
+                    max = x
         else:
             if lowerbound[0] == 'x':
                 x = LB
