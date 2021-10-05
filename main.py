@@ -23,11 +23,11 @@ abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','
 letters = alphabet.split(';')
 j = 0
 #theta direction servo
-kit.servo[0].angle(90)
+kit.servo[0].angle = 90
 #r direction servo
-kit.servo[1].angle(0)
+kit.servo[1].angle = 0
 #dump servo
-kit.servo[2].angle(180)
+kit.servo[2].angle = 180
 while j < j_index:
     letter = input('Please input the letter you want to write: ')
     jj = 0
