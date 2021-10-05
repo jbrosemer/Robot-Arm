@@ -82,6 +82,7 @@ while j < j_index:
                 if round(x*100) % 18 == 0:
                     t.pendown()
                     if not dump:
+                        print('here1')
                         kit.servo[2].angle = 0
                         dump = True
                 if x >= UB-0.01:
@@ -92,6 +93,7 @@ while j < j_index:
                     kit.servo[2].angle = 0
                 else:
                     if dump:
+                        print('here2')
                         kit.servo[2].angle = 180
                         dump = False
                 x += 0.002
