@@ -78,7 +78,7 @@ while j < j_index:
                 else:
                     theta = (math.pi)/2
                 t.penup()
-                print(x * 100 + offset)
+                print(round(x * 100))
                 if round(x*100) % 18 == 0:
                     t.pendown()
                     if not dump:
