@@ -75,11 +75,11 @@ while j < j_index:
                 t.goto(x*100 + offset, y*100)
                 if (x*100 + offset) != 0:
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))
-                    print(theta*(180/math.pi))
                 else:
                     theta = (math.pi)/2
                 t.penup()
                 if round(x*100) % 18 == 0:
+                    print("here")
                     t.pendown()
                     if not dump:
                         kit.servo[2].angle = 0
