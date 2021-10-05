@@ -109,7 +109,6 @@ while j < j_index:
                 x = eval(function[1])
                 t.goto(x * 100 + offset, y * 100)
                 t.penup()
-                kit.servo[2].angle = 180
                 print(round(y * 100))
                 if round(y*100) % 25 == 0:
                     t.pendown()
