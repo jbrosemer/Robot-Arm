@@ -34,6 +34,7 @@ kit.servo[1].angle = 0
 # dump servo
 kit.servo[2].angle = 180
 dump = False
+xinc = 0.002
 while j < j_index:
     letter = input('Please input the letter you want to write: ')
     jj = 0
@@ -76,7 +77,7 @@ while j < j_index:
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
                     theta = 90
-                print(theta)
+                # print(theta)
                 if theta < 0:
                     kit.servo[0].angle = 180 + theta
                 else:
@@ -90,23 +91,36 @@ while j < j_index:
                         print('here1')
                         kit.servo[2].angle = 0
                         dump = True
+                        xinc = 0.002
+
                 elif x >= UB-0.01:
                     t.pendown()
                     if not dump:
                         dump = True
+                        xinc = 0.002
                     kit.servo[2].angle = 0
                 else:
                     if dump:
                         print('here2')
                         kit.servo[2].angle = 180
                         dump = False
-                x += 0.002
+                        xinc = 0.02
+                x += xinc
                 if(x>max):
                     max = x
         elif function[0] == 'x':
             y = LB
             while y <= UB:
                 x = eval(function[1])
+                if (y*100 + offset) != 0:
+                    theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
+                else:
+                    theta = 90
+                # print(theta)
+                if theta < 0:
+                    kit.servo[0].angle = 180 + theta
+                else:
+                    kit.servo[0].angle = theta
                 t.goto(x * 100 + offset, y * 100)
                 t.penup()
                 print(round(y * 100))
