@@ -8,7 +8,8 @@ from adafruit_servokit import ServoKit
 t = turtle.Turtle()
 # declaring servo kit
 kit = ServoKit(channels=16)
-j_index = int(input('Please input how many letters you want to write: '))
+initials = (input('Please input what you want to write: '))
+j_index = len(initials)
 offset = -j_index*200+j_index*100
 width = (200*j_index)+(200*j_index)/(j_index+1)
 # turtle.screensize(canvwidth=width,canvheight=300)
@@ -28,7 +29,7 @@ rlimit = 10
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 letters = alphabet.split(';')
 j = 0
-#theta direction servo
+# theta direction servo
 kit.servo[0].angle = 90
 # r direction servo
 kit.servo[1].angle = 0
@@ -38,13 +39,13 @@ dump = False
 xinc = 0.002
 yinc = 0.001
 rmax = 0
+# this loop finds the biggest r for all letters that are going to be written
 while j < j_index:
-    letter = input('Please input the letter you want to write: ')
     jj = 0
 
     #find which letter we want to write
     for jj in range(len(abc)):
-        if letter == abc[jj]:
+        if initials[j] == abc[jj]:
             index = jj
             jj = len(abc)
         else:
@@ -66,19 +67,19 @@ while j < j_index:
         else:
             LB = 0
             UB = float(lowerbound[1])
-        # for z in range(UB*100):
 
 
 
         # Function Parsing
         if function[0] == 'y':
             x = LB
-            while x<=UB:
-                y = eval(function[1])
-                r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-                x += 0.0005
-                if r > rmax:
-                    rmax = r
+            #while x<=UB:
+            #    y = eval(function[1])
+            #    r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
+            #    x += 0.0005
+            #    if r > rmax:
+            #        rmax = r
+
             x = LB
             print('rmax' + str(rmax))
             while x <= UB:
@@ -95,8 +96,8 @@ while j < j_index:
                     kit.servo[0].angle = 180 + theta
                 else:
                     kit.servo[0].angle = theta
-                kit.servo[1].angle = 180 * (r / rmax)
-                print("r-angle " + str(180*(r/rmax)))
+                kit.servo[1].angle = 180 * (r / rlimit)
+                print("r-angle " + str(180*(r / rlimit)))
                 t.goto(x*100 + offset, y*100)
                 t.penup()
                 if round(x*100) % 18 == 0:
@@ -131,7 +132,6 @@ while j < j_index:
                     theta = 90
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
                 print("r = " + str(r))
-                # print(theta)
                 if theta < 0:
                     kit.servo[0].angle = 180 + theta
                 else:
