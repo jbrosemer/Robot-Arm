@@ -3,7 +3,10 @@
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 import turtle
+from adafruit_servokit import ServoKit
 t = turtle.Turtle()
+# declaring servo kit
+kit = ServoKit(channels=16)
 j_index = int(input('Please input how many letters you want to write: '))
 offset = -j_index*200+j_index*100
 width = (200*j_index)+(200*j_index)/(j_index+1)
@@ -19,6 +22,12 @@ alphabet = file.read()
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 letters = alphabet.split(';')
 j = 0
+#theta direction servo
+kit.servo[0].angle(90)
+#r direction servo
+kit.servo[1].angle(0)
+#dump servo
+kit.servo[2].angle(180)
 while j < j_index:
     letter = input('Please input the letter you want to write: ')
     jj = 0
