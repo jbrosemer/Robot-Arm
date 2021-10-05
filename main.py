@@ -136,6 +136,8 @@ while j < j_index:
                     kit.servo[0].angle = 180 + theta
                 else:
                     kit.servo[0].angle = theta
+                kit.servo[1].angle = 180 * (r / rlimit)
+                print("r-angle " + str(180*(r / rlimit)))
                 t.goto(x * 100 + offset, y * 100)
                 t.penup()
                 print(round(y * 100))
