@@ -35,6 +35,7 @@ kit.servo[1].angle = 0
 kit.servo[2].angle = 180
 dump = False
 xinc = 0.002
+yinc = 0.001
 while j < j_index:
     letter = input('Please input the letter you want to write: ')
     jj = 0
@@ -130,17 +131,20 @@ while j < j_index:
                         print('here1')
                         kit.servo[2].angle = 0
                         dump = True
+                        yinc = 0.001
                 elif y >= UB-0.02:
                     t.pendown()
                     if not dump:
                         dump = True
+                        yinc = 0.001
                     kit.servo[2].angle = 0
                 else:
                     if dump:
                         print('here2')
                         kit.servo[2].angle = 180
                         dump = False
-                y += 0.001
+                        yinc = 0.02
+                y += yinc
 
 
         else:
