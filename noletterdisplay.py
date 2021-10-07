@@ -63,16 +63,17 @@ while j < j_index:
         else:
             LB = 0
             UB = float(lowerbound[1])
-        LB = float(2*LB)
-        UB = float(2*UB)
+        scaler = 2
+        LB = float(scaler*LB)
+        UB = float(scaler*UB)
 
 
         # Function Parsing
         if function[0] == 'y':
             x = LB
             while x <= UB:
-
-                y = eval(function[1])
+                x = scaler * x
+                y = scaler * eval(function[1])
                 print('function ' + function[1])
                 if (x*100 + offset) != 0:
                     print("x " + str(x) + " y " + str(y))
