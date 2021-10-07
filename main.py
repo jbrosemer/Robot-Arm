@@ -94,7 +94,7 @@ while j < j_index:
                     if not dump:
                         kit.servo[2].angle = 0
                         dump = True
-                        xinc = 0.001
+                        xinc = 0.0001
                         print('theta ' + str(theta))
                         print('r ' + str(r))
 
@@ -102,7 +102,7 @@ while j < j_index:
                     t.pendown()
                     if not dump:
                         dump = True
-                        xinc = 0.001
+                        xinc = 0.0001
                         print('theta ' + str(theta))
                         print('r ' + str(r))
                     kit.servo[2].angle = 0
@@ -138,14 +138,14 @@ while j < j_index:
                     if not dump:
                         kit.servo[2].angle = 0
                         dump = True
-                        yinc = 0.001
+                        yinc = 0.0001
                         print('theta ' + str(theta))
                         print('r ' + str(r))
                 elif y >= UB-0.02:
                     t.pendown()
                     if not dump:
                         dump = True
-                        yinc = 0.001
+                        yinc = 0.0001
                         print('theta ' + str(theta))
                         print('r ' + str(r))
                     kit.servo[2].angle = 0
