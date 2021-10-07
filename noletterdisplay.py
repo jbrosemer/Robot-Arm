@@ -74,6 +74,7 @@ while j < j_index:
 
                 y = eval(function[1])
                 if (x*100 + offset) != 0:
+                    print("x " + str(x) + "y " + str(y))
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
                     theta = 90
