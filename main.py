@@ -158,8 +158,9 @@ while j < j_index:
         else:
             if lowerbound[0] == 'x':
                 x = LB
+                function[1] = function[1].replace("x", "x/" + str(scaler))
                 while x <= UB:
-                    y = eval(function[1])
+                    y = eval(function[1])*scaler
                     t.goto(x * 100 + offset, y * 100)
                     print("r-angle " + str(180 * (r / rlimit)))
                     t.penup()
@@ -184,8 +185,9 @@ while j < j_index:
                         max = x
             else:
                 y = LB
+                function[1] = function[1].replace("y", "y/" + str(scaler))
                 while y <= UB:
-                    x = eval(function[1])
+                    x = eval(function[1])*scaler
                     t.goto(x * 100 + offset, y * 100)
                     t.penup()
                     if round(y * 100) % 25 == 0:
