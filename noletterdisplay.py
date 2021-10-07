@@ -58,11 +58,11 @@ while j < j_index:
         bounds = bounds[1].split('}')
         lowerbound = bounds[0].split('<')
         if len(lowerbound) > 2:
-            LB = float(lowerbound[0])
-            UB = float(lowerbound[2])
+            LB = 2*float(lowerbound[0])
+            UB = 2*float(lowerbound[2])
         else:
             LB = 0
-            UB = float(lowerbound[1])
+            UB = 2*float(lowerbound[1])
 
 
 
