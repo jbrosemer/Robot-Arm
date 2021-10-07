@@ -72,7 +72,7 @@ while j < j_index:
         if function[0] == 'y':
             x = LB
             while x <= UB:
-                x = scaler * x
+                x = x / scaler
                 y = scaler * eval(function[1])
                 print('function ' + function[1])
                 if (x*100 + offset) != 0:
