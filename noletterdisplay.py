@@ -147,12 +147,12 @@ while j < j_index:
                         print('here1')
                         kit.servo[2].angle = 0
                         dump = True
-                        yinc = 0.001
+                        yinc = 0.0001
                 elif y >= UB-0.02:
                     # t.pendown()
                     if not dump:
                         dump = True
-                        yinc = 0.001
+                        yinc = 0.0001
                     kit.servo[2].angle = 0
                 else:
                     if dump:
@@ -177,11 +177,11 @@ while j < j_index:
                         if not dump:
                             kit.servo[2].angle = 0
                             dump = True
-                            xinc = 0.001
+                            xinc = 0.0001
                     elif x >= UB - 0.02:
                         if not dump:
                             dump = True
-                            xinc = 0.001
+                            xinc = 0.0001
                         kit.servo[2].angle = 0
                     else:
                         if dump:
