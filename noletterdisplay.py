@@ -73,8 +73,9 @@ while j < j_index:
             while x <= UB:
 
                 y = eval(function[1])
+                print('function ' + function[1])
                 if (x*100 + offset) != 0:
-                    print("x " + str(x) + "y " + str(y))
+                    print("x " + str(x) + " y " + str(y))
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
                     theta = 90
