@@ -34,9 +34,6 @@ kit.servo[0].angle = 90
 kit.servo[1].angle = 0
 # dump servo
 kit.servo[2].set_pulse_width_range(1000, 3000)
-kit.servo[2].angle = 0
-time.sleep(1)
-
 kit.servo[2].angle = 180
 dump = False
 xinc = 0.002
