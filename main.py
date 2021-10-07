@@ -63,7 +63,7 @@ while j < j_index:
         else:
             LB = 0
             UB = float(lowerbound[1])
-        scaler = 0.8
+        scaler = 1
         LB = float(scaler*LB)
         UB = float(scaler*UB)
 
