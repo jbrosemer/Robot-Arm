@@ -69,7 +69,7 @@ while j < j_index:
 
 
         # Function Parsing
-        if function[0] == 'y':  
+        if function[0] == 'y':
             x = LB
             while x <= UB:
 

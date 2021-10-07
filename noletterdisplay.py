@@ -205,4 +205,3 @@ while j < j_index:
     j += 1
 # t.goto(0,0)
 # turtle.exitonclick()
-print(rmax)
