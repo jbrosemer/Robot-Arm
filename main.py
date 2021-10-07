@@ -204,6 +204,7 @@ while j < j_index:
                             dump = False
                             yinc = 0.02
         i += 1
+        t.penup()
     offset = offset + max*100 + 50
     kit.servo[0].angle = 90
     j += 1
