@@ -3,6 +3,7 @@
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 import turtle
+import time
 import math
 from adafruit_servokit import ServoKit
 t = turtle.Turtle()
@@ -32,6 +33,10 @@ kit.servo[0].angle = 90
 # r direction servo
 kit.servo[1].angle = 0
 # dump servo
+kit.servo[2].set_pulse_width_range(1000, 2000)
+kit.servo[2].angle = 0
+time.sleep(1)
+
 kit.servo[2].angle = 180
 dump = False
 xinc = 0.002
