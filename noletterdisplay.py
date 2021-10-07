@@ -11,8 +11,6 @@ kit = ServoKit(channels=16)
 initials = (input('Please input what you want to write: '))
 j_index = len(initials)
 offset = -j_index*200+j_index*100
-width = (200*j_index)+(200*j_index)/(j_index+1)
-# turtle.screensize(canvwidth=width,canvheight=300)
 # t.speed(1)
 # t.pensize(10)
 # t.penup()
@@ -38,8 +36,6 @@ kit.servo[2].angle = 180
 dump = False
 xinc = 0.002
 yinc = 0.001
-rmax = 0
-# this loop finds the biggest r for all letters that are going to be written
 while j < j_index:
     jj = 0
 
@@ -72,14 +68,6 @@ while j < j_index:
 
         # Function Parsing
         if function[0] == 'y':
-            x = LB
-            #while x<=UB:
-            #    y = eval(function[1])
-            #    r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-            #    x += 0.0005
-            #    if r > rmax:
-            #        rmax = r
-
             x = LB
             while x <= UB:
 
