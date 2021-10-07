@@ -117,8 +117,9 @@ while j < j_index:
 
         elif function[0] == 'x':
             y = LB
+            function[1] = function[1].replace("y", "y/" + str(scaler))
             while y <= UB:
-                x = eval(function[1])
+                x = eval(function[1])*scaler
                 if (x*100 + offset) != 0:
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
@@ -207,5 +208,6 @@ while j < j_index:
     offset = offset + max*100 + 50
     kit.servo[0].angle = 90
     j += 1
+t.penup()
 t.goto(0,0)
 turtle.exitonclick()
