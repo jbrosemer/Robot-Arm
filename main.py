@@ -22,7 +22,7 @@ alphabet = file.read()
 # x offset from origin
 xoff = 0
 # y offset from paper
-yoff = 5
+yoff = 1
 rlimit = 10
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 letters = alphabet.split(';')
@@ -128,7 +128,7 @@ while j < j_index:
                 else:
                     kit.servo[0].angle = theta
                 kit.servo[1].angle = 180 * (r / rlimit)
-                # print("r-angle " + str(180*(r / rlimit)))
+                print("r-angle " + str(180*(r / rlimit)))
                 t.goto(x * 100 + offset, y * 100)
                 t.penup()
                 if round(y*100) % 25 == 0:
@@ -161,6 +161,7 @@ while j < j_index:
                 while x <= UB:
                     y = eval(function[1])
                     t.goto(x * 100 + offset, y * 100)
+                    print("r-angle " + str(180 * (r / rlimit)))
                     t.penup()
                     kit.servo[2].angle = 180
                     if round(x * 100) % 25 == 0:
