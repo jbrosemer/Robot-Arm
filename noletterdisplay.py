@@ -63,8 +63,8 @@ while j < j_index:
         else:
             LB = 0
             UB = float(lowerbound[1])
-        LB = 2*LB
-        UB = 2*UB
+        LB = float(2*LB)
+        UB = float(2*UB)
 
 
         # Function Parsing
