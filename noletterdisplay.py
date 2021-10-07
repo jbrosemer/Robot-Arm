@@ -77,8 +77,6 @@ while j < j_index:
                 else:
                     theta = 90
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-                print('theta ' + str(theta))
-                print('r ' + str(r))
                 if theta < 0:
                     kit.servo[0].angle = 180 + theta
                 else:
@@ -93,12 +91,16 @@ while j < j_index:
                         kit.servo[2].angle = 0
                         dump = True
                         xinc = 0.0001
+                        print('theta ' + str(theta))
+                        print('r ' + str(r))
 
                 elif x >= UB-0.01:
                     # t.pendown()
                     if not dump:
                         dump = True
                         xinc = 0.0001
+                        print('theta ' + str(theta))
+                        print('r ' + str(r))
                     kit.servo[2].angle = 0
                 else:
                     if dump:
@@ -118,8 +120,6 @@ while j < j_index:
                 else:
                     theta = 90
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-                print('theta ' + str(theta))
-                print('r ' + str(r))
                 if theta < 0:
                     kit.servo[0].angle = 180 + theta
                 else:
@@ -134,11 +134,15 @@ while j < j_index:
                         kit.servo[2].angle = 0
                         dump = True
                         yinc = 0.0001
+                        print('theta ' + str(theta))
+                        print('r ' + str(r))
                 elif y >= UB-0.02:
                     # t.pendown()
                     if not dump:
                         dump = True
                         yinc = 0.0001
+                        print('theta ' + str(theta))
+                        print('r ' + str(r))
                     kit.servo[2].angle = 0
                 else:
                     if dump:
