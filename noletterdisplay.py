@@ -77,14 +77,13 @@ while j < j_index:
                 else:
                     theta = 90
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-                # print("r = " + str(r))
-                # print(theta)
+                print('theta' + str(theta))
                 if theta < 0:
                     kit.servo[0].angle = 180 + theta
                 else:
                     kit.servo[0].angle = theta
                 kit.servo[1].angle = 180 * (r / rlimit)
-                # print("r-angle " + str(180*(r / rlimit)))
+                print("r-angle " + str(180*(r / rlimit)))
                 # t.goto(x*100 + offset, y*100)
                 # penup()
                 if round(x*100) % 18 == 0:
@@ -118,13 +117,13 @@ while j < j_index:
                 else:
                     theta = 90
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-                # print("r = " + str(r))
+                print('theta' + str(theta))
                 if theta < 0:
                     kit.servo[0].angle = 180 + theta
                 else:
                     kit.servo[0].angle = theta
                 kit.servo[1].angle = 180 * (r / rlimit)
-                # print("r-angle " + str(180*(r / rlimit)))
+                print("r-angle " + str(180*(r / rlimit)))
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
                 if round(y*100) % 25 == 0:
