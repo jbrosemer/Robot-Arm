@@ -75,7 +75,6 @@ while j < j_index:
                 function[1] = function[1].replace("x", "x/" + str(scaler))
             while x <= UB:
                 y = scaler * eval(function[1])
-                print('function ' + function[1])
                 if (x*100 + offset) != 0:
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
@@ -86,7 +85,6 @@ while j < j_index:
                 else:
                     kit.servo[0].angle = theta
                 kit.servo[1].angle = 180 * (r / rlimit)
-                # print("r-angle " + str(180*(r / rlimit)))
                 t.goto(x*100 + offset, y*100)
                 t.penup()
                 if round(x*100) % 18 == 0:
