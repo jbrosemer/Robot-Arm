@@ -2,20 +2,19 @@
 
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-import turtle
-import time
+# import turtle
 import math
 from adafruit_servokit import ServoKit
-t = turtle.Turtle()
+# t = turtle.Turtle()
 # declaring servo kit
 kit = ServoKit(channels=16)
 initials = (input('Please input what you want to write: '))
 j_index = len(initials)
 offset = -j_index*200+j_index*100
-t.speed(1)
-t.pensize(10)
-t.penup()
-t.goto(0, 0)
+# t.speed(1)
+# t.pensize(10)
+# t.penup()
+# t.goto(0, 0)
 
 
 file = open("alphabet.txt")
@@ -50,10 +49,10 @@ while j < j_index:
             jj += 1
     vectors = letters[index].split(',')
 
-    t.goto(offset, 0)
+    # t.goto(offset, 0)
     max = 0
     for i in range(len(vectors)):
-        t.penup()
+        # t.penup()
         bounds = vectors[i].split('{')
         function = bounds[0]
         function = function.split('=')
@@ -65,11 +64,11 @@ while j < j_index:
         else:
             LB = 0
             UB = float(lowerbound[1])
-        scaler = 1
+        scaler = 2
         LB = float(scaler*LB)
         UB = float(scaler*UB)
 
-
+        print(function[0])
         # Function Parsing
         if function[0] == 'y':
             x = LB
@@ -87,24 +86,19 @@ while j < j_index:
                 else:
                     kit.servo[0].angle = theta
                 kit.servo[1].angle = 180 * (r / rlimit)
-                t.goto(x*100 + offset, y*100)
-                t.penup()
+                # t.goto(x*100 + offset, y*100)
+                # t.penup()
                 if round(x*100) % 18 == 0:
-                    t.pendown()
+                    # t.pendown()
                     if not dump:
                         kit.servo[2].angle = 0
                         dump = True
-                        xinc = 0.0005
-                        print('theta ' + str(theta))
-                        print('r ' + str(r))
-
+                        xinc = 0.005
                 elif x >= UB-0.01:
-                    t.pendown()
+                    # t.pendown()
                     if not dump:
                         dump = True
-                        xinc = 0.0005
-                        print('theta ' + str(theta))
-                        print('r ' + str(r))
+                        xinc = 0.0025
                     kit.servo[2].angle = 0
                 else:
                     if dump:
@@ -130,24 +124,19 @@ while j < j_index:
                 else:
                     kit.servo[0].angle = theta
                 kit.servo[1].angle = 180 * (r / rlimit)
-                print("r-angle " + str(180*(r / rlimit)))
-                t.goto(x * 100 + offset, y * 100)
-                t.penup()
+                # t.goto(x * 100 + offset, y * 100)
+                # t.penup()
                 if round(y*100) % 25 == 0:
-                    t.pendown()
+                    # t.pendown()
                     if not dump:
                         kit.servo[2].angle = 0
                         dump = True
-                        yinc = 0.0005
-                        print('theta ' + str(theta))
-                        print('r ' + str(r))
+                        yinc = 0.002
                 elif y >= UB-0.02:
-                    t.pendown()
+                    # t.pendown()
                     if not dump:
                         dump = True
-                        yinc = 0.0005
-                        print('theta ' + str(theta))
-                        print('r ' + str(r))
+                        yinc = 0.002
                     kit.servo[2].angle = 0
                 else:
                     if dump:
@@ -163,12 +152,11 @@ while j < j_index:
                 function[1] = function[1].replace("x", "x/" + str(scaler))
                 while x <= UB:
                     y = eval(function[1])*scaler
-                    t.goto(x * 100 + offset, y * 100)
-                    print("r-angle " + str(180 * (r / rlimit)))
-                    t.penup()
+                    # t.goto(x * 100 + offset, y * 100)
+                    # t.penup()
                     kit.servo[2].angle = 180
                     if round(x * 100) % 25 == 0:
-                        t.pendown()
+                        # t.pendown()
                         if not dump:
                             kit.servo[2].angle = 0
                             dump = True
@@ -190,8 +178,8 @@ while j < j_index:
                 function[1] = function[1].replace("y", "y/" + str(scaler))
                 while y <= UB:
                     x = eval(function[1])*scaler
-                    t.goto(x * 100 + offset, y * 100)
-                    t.penup()
+                    # t.goto(x * 100 + offset, y * 100)
+                    # t.penup()
                     if round(y * 100) % 25 == 0:
                         if not dump:
                             kit.servo[2].angle = 0
@@ -200,7 +188,7 @@ while j < j_index:
                     elif y >= UB - 0.02:
                         if not dump:
                             dump = True
-                            yinc = 0.001
+                            yinc = 0.01
                         kit.servo[2].angle = 0
                     else:
                         if dump:
@@ -208,10 +196,10 @@ while j < j_index:
                             dump = False
                             yinc = 0.02
         i += 1
-        t.penup()
+        # t.penup()
     offset = offset + max*100 + 50
     kit.servo[0].angle = 90
     j += 1
-t.penup()
-t.goto(0,0)
-turtle.exitonclick()
+# t.penup()
+# t.goto(0,0)
+# turtle.exitonclick()
