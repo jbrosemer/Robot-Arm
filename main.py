@@ -93,18 +93,18 @@ while j < j_index:
                     if not dump:
                         kit.servo[2].angle = 0
                         dump = True
-                        xinc = 0.005
+                        xinc = 0.0005
                 elif x >= UB-0.01:
                     # t.pendown()
                     if not dump:
                         dump = True
-                        xinc = 0.0025
+                        xinc = 0.00025
                     kit.servo[2].angle = 0
                 else:
                     if dump:
                         kit.servo[2].angle = 180
                         dump = False
-                        xinc = 0.01
+                        xinc = 0.001
                 x += xinc
                 if x>max:
                     max = x
@@ -131,18 +131,18 @@ while j < j_index:
                     if not dump:
                         kit.servo[2].angle = 0
                         dump = True
-                        yinc = 0.002
+                        yinc = 0.0002
                 elif y >= UB-0.02:
                     # t.pendown()
                     if not dump:
                         dump = True
-                        yinc = 0.002
+                        yinc = 0.0002
                     kit.servo[2].angle = 0
                 else:
                     if dump:
                         kit.servo[2].angle = 180
                         dump = False
-                        yinc = 0.02
+                        yinc = 0.002
                 y += yinc
                 if x>max:
                     max = x
@@ -160,17 +160,17 @@ while j < j_index:
                         if not dump:
                             kit.servo[2].angle = 0
                             dump = True
-                            xinc = 0.001
+                            xinc = 0.0001
                     elif x >= UB - 0.02:
                         if not dump:
                             dump = True
-                            xinc = 0.001
+                            xinc = 0.0001
                         kit.servo[2].angle = 0
                     else:
                         if dump:
                             kit.servo[2].angle = 180
                             dump = False
-                            xinc = 0.02
+                            xinc = 0.002
                     if (x > max):
                         max = x
             else:
@@ -184,17 +184,17 @@ while j < j_index:
                         if not dump:
                             kit.servo[2].angle = 0
                             dump = True
-                            yinc = 0.01
+                            yinc = 0.001
                     elif y >= UB - 0.02:
                         if not dump:
                             dump = True
-                            yinc = 0.01
+                            yinc = 0.001
                         kit.servo[2].angle = 0
                     else:
                         if dump:
                             kit.servo[2].angle = 180
                             dump = False
-                            yinc = 0.02
+                            yinc = 0.002
         i += 1
         # t.penup()
     offset = offset + max*100 + 50
