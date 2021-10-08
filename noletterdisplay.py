@@ -26,7 +26,6 @@ yoff = 1
 rlimit = 10
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 letters = alphabet.split(';')
-j = 0
 # theta direction servo
 # kit.servo[0].angle = 90
 # r direction servo
@@ -35,9 +34,7 @@ j = 0
 # kit.servo[2].set_pulse_width_range(700, 3000)
 # kit.servo[2].angle = 180
 dump = False
-xinc = 0.002
-yinc = 0.001
-while j < j_index:
+for j in range(len(initials)):
     jj = 0
 
     #find which letter we want to write
