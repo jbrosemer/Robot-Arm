@@ -13,7 +13,6 @@ kit = ServoKit(channels=16)
 # ask the command line what to write
 initials = (input('Please input what you want to write: '))
 # offset of the letters is based on the number of letters you want to write
-offset = -len(initials)*200+len(initials)*100
 
 #defines basic turtle display variables
 # t.speed(1)
@@ -92,7 +91,7 @@ for j in range(len(initials)):
 
         # defines the scaler variable, defines the size of the letter you are writing
         # going below 0 is not recommended
-        scaler = 1
+        scaler = 2
 
         # scales the bounds by the scaler variable
         LB = float(scaler*LB)
@@ -127,6 +126,8 @@ for j in range(len(initials)):
                 # r is basic polar sqrt of x^2 + y^2 the offsets
                 # are needed to define position based on them
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
+                print("r " + str(r))
+                print("theta " + str(theta))
                 # when some of the letter is in the left
                 # half of the plane the resulting angle is negative
                 # this is fixed by adding the negative angle to 180.
@@ -205,6 +206,8 @@ for j in range(len(initials)):
                     kit.servo[0].angle = 180 + theta
                 else:
                     kit.servo[0].angle = theta
+                print("r " + str(r))
+                print("theta " + str(theta))
                 kit.servo[1].angle = 180 * (r / rlimit)
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
@@ -285,7 +288,7 @@ for j in range(len(initials)):
         i += 1
         # t.penup()
     # offset your letter so you can write the next letter not on top of the prior
-    offset = offset + max*100 + 50
+    # offset = offset + max*100 + 50
     # reset the theta motor to 90
     kit.servo[0].angle = 90
     # go to the next letter
