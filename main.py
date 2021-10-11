@@ -178,7 +178,7 @@ for j in range(len(initials)):
                     if dump:
                         kit.servo[2].angle = 180
                         dump = False
-                        xinc = 0.005
+                        xinc = 0.0005
 
                 # increment x by the defined x increment.
                 # Essentially the last 40 lines are all to rotate the dump motor and get this value.
