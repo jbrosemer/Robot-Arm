@@ -178,7 +178,7 @@ for j in range(len(initials)):
                     if dump:
                         kit.servo[2].angle = 180
                         dump = False
-                        xinc = 0.0009
+                        xinc = 0.0001
 
                 # increment x by the defined x increment.
                 # Essentially the last 40 lines are all to rotate the dump motor and get this value.
@@ -230,7 +230,7 @@ for j in range(len(initials)):
                     if dump:
                         kit.servo[2].angle = 180
                         dump = False
-                        yinc = 0.004
+                        yinc = 0.00004
                 # increments by the y value decided
                 y += yinc
                 # although these are vertical lines. There is still one letter
@@ -262,7 +262,7 @@ for j in range(len(initials)):
                         if dump:
                             kit.servo[2].angle = 180
                             dump = False
-                            xinc = 0.002
+                            xinc = 0.00001
                     if (x > max):
                         max = x
             else:
