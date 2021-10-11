@@ -159,7 +159,7 @@ for j in range(len(initials)):
                         dump = True
                         # slow down the incrementation when we are supposed to be dumping.
                         # this allows for all the salt to come out
-                        xinc = 0.000075
+                        xinc = 0.0001
                 # if the number is not divisible by my arbitrary value, BUT it IS near a bound point draw
                 elif x >= UB-0.01:
                     # t.pendown()
@@ -169,7 +169,7 @@ for j in range(len(initials)):
                         # slow down the incrementation when we are supposed to be dumping.
                         # this needs to be smaller than the previous slow incrementation
                         # because on curves the bound points tend to require a lot of detail.
-                        xinc = 0.000075
+                        xinc = 0.0001
                     kit.servo[2].angle = 0
                 # if neither of the prior cases are true we should not be dumping
                 else:
