@@ -210,7 +210,7 @@ for j in range(len(initials)):
                     kit.servo[0].angle = theta
                 print("r " + str(r))
                 print("theta " + str(theta))
-                kit.servo[1].angle = 180 * (r / rlimit)
+                kit.servo[1].angle = 180 * ((r*4) / rlimit)
 
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
