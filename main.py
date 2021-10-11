@@ -133,9 +133,9 @@ for j in range(len(initials)):
                 # this is fixed by adding the negative angle to 180.
                 # so the motor successfully can rotate from 0 degrees to 180
                 if theta < 0:
-                    kit.servo[0].angle = 180 + theta
+                    kit.servo[1].angle = 180 + theta
                 else:
-                    kit.servo[0].angle = theta
+                    kit.servo[1].angle = theta
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
                 kit.servo[3].angle = 180 * ((r*3) / rlimit)
                 kit.servo[4].angle = 180-(180 * ((r * 3) / rlimit))
