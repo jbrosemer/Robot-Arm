@@ -40,6 +40,7 @@ letters = alphabet.split(';')
 kit.servo[1].angle = 90
 # r direction servo
 kit.servo[3].angle = 0
+kit.servo[4].angle = 0
 # dump servo
 kit.servo[2].set_pulse_width_range(700, 3000)
 kit.servo[2].angle = 180
@@ -137,6 +138,7 @@ for j in range(len(initials)):
                     kit.servo[0].angle = theta
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
                 kit.servo[3].angle = 180 * ((r*10) / rlimit)
+                kit.servo[4].angle = 180-(180 * ((r * 10) / rlimit))
                 print("r " + str(180 * ((r*10) / rlimit)))
 
 
@@ -211,7 +213,7 @@ for j in range(len(initials)):
                 print("r " + str(r))
                 print("theta " + str(theta))
                 kit.servo[3].angle = 180 * ((r*3) / rlimit)
-
+                kit.servo[4].angle = 180 - (180 * ((r * 10) / rlimit))
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
                 if round(y*100) % 25 == 0:
