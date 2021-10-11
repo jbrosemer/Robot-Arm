@@ -11,6 +11,8 @@ from adafruit_servokit import ServoKit
 # declaring servo kit
 kit = ServoKit(channels=16)
 # ask the command line what to write
+kit.servo[2].set_pulse_width_range(600, 3200)
+kit.servo[2].angle = 180
 initials = (input('Please input what you want to write: '))
 # offset of the letters is based on the number of letters you want to write
 offset = 0
@@ -42,8 +44,6 @@ kit.servo[1].angle = 90
 kit.servo[3].angle = 0
 kit.servo[4].angle = 0
 # dump servo
-kit.servo[2].set_pulse_width_range(600, 3200)
-kit.servo[2].angle = 180
 
 # don't dump initially
 dump = False
