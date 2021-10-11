@@ -29,7 +29,7 @@ xoff = 0
 # y offset from paper
 yoff = 4
 # r extension to max position
-rlimit = 10
+rlimit = 7
 
 # all of the letters in the alphabet
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
