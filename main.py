@@ -126,7 +126,6 @@ for j in range(len(initials)):
                 # r is basic polar sqrt of x^2 + y^2 the offsets
                 # are needed to define position based on them
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-                print("r " + str(r))
                 print("theta " + str(theta))
                 # when some of the letter is in the left
                 # half of the plane the resulting angle is negative
@@ -138,6 +137,7 @@ for j in range(len(initials)):
                     kit.servo[0].angle = theta
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
                 kit.servo[1].angle = 180 * ((r*10) / rlimit)
+                print("r " + (180 * ((r*10) / rlimit)))
 
 
                 # t.goto(x*100 + offset, y*100)
