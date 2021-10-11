@@ -170,7 +170,7 @@ for j in range(len(initials)):
                         # slow down the incrementation when we are supposed to be dumping.
                         # this needs to be smaller than the previous slow incrementation
                         # because on curves the bound points tend to require a lot of detail.
-                        xinc = 0.000025
+                        xinc = 0.00005
                     kit.servo[2].angle = 0
                 # if neither of the prior cases are true we should not be dumping
                 else:
@@ -179,7 +179,7 @@ for j in range(len(initials)):
                     if dump:
                         kit.servo[2].angle = 180
                         dump = False
-                        xinc = 0.0001
+                        xinc = 0.0002
 
                 # increment x by the defined x increment.
                 # Essentially the last 40 lines are all to rotate the dump motor and get this value.
@@ -220,18 +220,18 @@ for j in range(len(initials)):
                     if not dump:
                         kit.servo[2].angle = 0
                         dump = True
-                        yinc = 0.00002
+                        yinc = 0.00004
                 elif y >= UB-0.02:
                     # t.pendown()
                     if not dump:
                         dump = True
-                        yinc = 0.00002
+                        yinc = 0.00004
                     kit.servo[2].angle = 0
                 else:
                     if dump:
                         kit.servo[2].angle = 180
                         dump = False
-                        yinc = 0.0002
+                        yinc = 0.0004
                 # increments by the y value decided
                 y += yinc
                 # although these are vertical lines. There is still one letter
