@@ -119,8 +119,8 @@ for j in range(len(initials)):
 
                 # if the x position is 0 the math cannot be calculated without an error
                 # this if just basically stops dividing by 0. Will need to be changed when the offset changes
-                if (x*100 + offset) != 0:
-                    theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
+                if x != 0:
+                    theta = math.atan(((y + yoff))/(x + offset))*180/math.pi
                 # if divide by 0 would occur set theta to pi/2
                 else:
                     theta = 90
@@ -200,7 +200,7 @@ for j in range(len(initials)):
             while y <= UB:
                 x = eval(function[1])*scaler
                 if (x*100 + offset) != 0:
-                    theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
+                    theta = math.atan(((y+yoff))/(x + offset))*180/math.pi
                 else:
                     theta = 90
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
