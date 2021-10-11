@@ -42,7 +42,7 @@ kit.servo[1].angle = 90
 kit.servo[3].angle = 0
 kit.servo[4].angle = 0
 # dump servo
-kit.servo[2].set_pulse_width_range(700, 3000)
+kit.servo[2].set_pulse_width_range(600, 3200)
 kit.servo[2].angle = 180
 
 # don't dump initially
