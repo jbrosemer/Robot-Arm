@@ -27,7 +27,7 @@ alphabet = file.read()
 # x offset from origin
 xoff = 0
 # y offset from paper
-yoff = 4
+yoff = 0
 # r extension to max position
 rlimit = 7
 
