@@ -116,7 +116,8 @@ for j in range(len(initials)):
                 # also to scale a y function you must multiply the result of the evaluation by the scaler
                 y = scaler * eval(function[1])
                 # any scaling needed is finished now.
-
+                print("x " + str(x))
+                print("y " + str(y))
                 # if the x position is 0 the math cannot be calculated without an error
                 # this if just basically stops dividing by 0. Will need to be changed when the offset changes
                 if (x*100 + offset) != 0:
@@ -127,7 +128,7 @@ for j in range(len(initials)):
                 # r is basic polar sqrt of x^2 + y^2 the offsets
                 # are needed to define position based on them
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-                print("theta " + str(theta))
+                # print("theta " + str(theta))
                 # when some of the letter is in the left
                 # half of the plane the resulting angle is negative
                 # this is fixed by adding the negative angle to 180.
@@ -139,7 +140,7 @@ for j in range(len(initials)):
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
                 kit.servo[3].angle = 180 * ((r*3) / rlimit)
                 kit.servo[4].angle = 180-(180 * ((r * 3) / rlimit))
-                print("r " + str(180 * ((r*3) / rlimit)))
+               # print("r " + str(180 * ((r*3) / rlimit)))
 
 
                 # t.goto(x*100 + offset, y*100)
@@ -203,15 +204,13 @@ for j in range(len(initials)):
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
                     theta = 90
-                print("x " + str(x))
-                print("y " + str(y))
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
                 if theta < 0:
                     kit.servo[1].angle = 180 + theta
                 else:
                     kit.servo[1].angle = theta
-                print("r " + str(r))
-                print("theta " + str(theta))
+                # ("r " + str(r))
+                # print("theta " + str(theta))
                 kit.servo[3].angle = 180 * ((r*3) / rlimit)
                 kit.servo[4].angle = 180 - (180 * ((r * 3) / rlimit))
                 # t.goto(x * 100 + offset, y * 100)
