@@ -116,8 +116,7 @@ for j in range(len(initials)):
                 # also to scale a y function you must multiply the result of the evaluation by the scaler
                 y = scaler * eval(function[1])
                 # any scaling needed is finished now.
-                print("x " + str(x))
-                print("y " + str(y))
+
                 # if the x position is 0 the math cannot be calculated without an error
                 # this if just basically stops dividing by 0. Will need to be changed when the offset changes
                 if (x*100 + offset) != 0:
