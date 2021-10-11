@@ -37,9 +37,9 @@ abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','
 # splits the alphabet file by all of the letters
 letters = alphabet.split(';')
 # theta direction servo
-kit.servo[0].angle = 90
+kit.servo[1].angle = 90
 # r direction servo
-kit.servo[1].angle = 0
+kit.servo[0].angle = 0
 # dump servo
 kit.servo[2].set_pulse_width_range(700, 3000)
 kit.servo[2].angle = 180
@@ -209,6 +209,7 @@ for j in range(len(initials)):
                 print("r " + str(r))
                 print("theta " + str(theta))
                 kit.servo[1].angle = 180 * (r / rlimit)
+
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
                 if round(y*100) % 25 == 0:
