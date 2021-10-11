@@ -29,7 +29,7 @@ xoff = 0
 # y offset from paper
 yoff = 0
 # r extension to max position
-rlimit = 7
+rlimit = 14
 
 # all of the letters in the alphabet
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -201,6 +201,8 @@ for j in range(len(initials)):
                     theta = math.atan(((y+yoff)*100)/(x*100 + offset))*180/math.pi
                 else:
                     theta = 90
+                print("x " + str(x))
+                print("y " + str(y))
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
                 if theta < 0:
                     kit.servo[0].angle = 180 + theta
