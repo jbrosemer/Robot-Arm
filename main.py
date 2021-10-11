@@ -13,7 +13,7 @@ kit = ServoKit(channels=16)
 # ask the command line what to write
 initials = (input('Please input what you want to write: '))
 # offset of the letters is based on the number of letters you want to write
-
+offset = 0
 #defines basic turtle display variables
 # t.speed(1)
 # t.pensize(10)
