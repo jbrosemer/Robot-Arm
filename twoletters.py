@@ -180,6 +180,10 @@ for j in range(len(initials)):
                     # we move faster through this loop because we do not slow to dump
                     if dump:
                         print("r " + str(180 * ((r) / rlimit)))
+                        if theta < 0:
+                            print("theta " + str(180 + theta))
+                        else:
+                            print("theta " + str(theta))
                         kit.servo[2].angle = 180
                         dump = False
                         xinc = 0.0005
