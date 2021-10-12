@@ -149,7 +149,7 @@ for j in range(len(initials)):
                 # AKA if the x value is divisible by some arbitrary value draw otherwise don't
                 # I could have done the math for the length of the vector
                 # and set some variable for how many dots I want to draw but I didn't bother
-                if round(x*100) % 18*scaler == 0:
+                if round(x*100) % (18*scaler*2) == 0:
 
                     # t.pendown()
                     # if we are not currently dumping and we should be. Turn the motor and dump
@@ -162,6 +162,7 @@ for j in range(len(initials)):
                         xinc = 0.00003
                 # if the number is not divisible by my arbitrary value, BUT it IS near a bound point draw
                 elif x >= UB-0.01:
+                    print("here")
                     # t.pendown()
                     # if we are not currently dumping and we should be. Turn the motor and dump
                     if not dump:
@@ -228,6 +229,7 @@ for j in range(len(initials)):
                         dump = True
                         yinc = 0.00005
                 elif y >= UB-0.02:
+                    print("here")
                     # t.pendown()
                     if not dump:
                         dump = True
