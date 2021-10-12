@@ -11,13 +11,13 @@ from adafruit_servokit import ServoKit
 # declaring servo kit
 kit = ServoKit(channels=16)
 # ask the command line what to write
-# kit.servo[2].set_pulse_width_range(600, 3600)
-# kit.servo[2].angle = 180
+kit.servo[2].set_pulse_width_range(600, 3600)
+kit.servo[2].angle = 180
 
 # theta direction servo
-# kit.servo[1].angle = 90
+kit.servo[1].angle = 90
 # r direction servo
-# kit.servo[3].angle = 0
+kit.servo[3].angle = 0
 
 initials = (input('Please input what you want to write: '))
 # defines the scaler variable, defines the size of the letter you are writing
