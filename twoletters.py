@@ -38,7 +38,7 @@ alphabet = file.read()
 # y offset from paper
 yoff = 8
 # r extension to max position
-rlimit = 14
+rlimit = 13
 
 yinc = 0.0004
 
@@ -140,8 +140,6 @@ for j in range(len(initials)):
                 # print("r " + str(180 * ((r) / rlimit)))
 
 
-                # t.goto(x*100 + offset, y*100)
-                # t.penup()
 
                 # this block is how dots are written rather than straight lines
                 # AKA if the x value is divisible by some arbitrary value draw otherwise don't
@@ -149,7 +147,6 @@ for j in range(len(initials)):
                 # and set some variable for how many dots I want to draw but I didn't bother
                 if round(x*100) % round(18*scaler*2) == 0:
 
-                    # t.pendown()
                     # if we are not currently dumping and we should be. Turn the motor and dump
                     if not dump:
 
@@ -160,7 +157,6 @@ for j in range(len(initials)):
                         xinc = 0.00003
                 # if the number is not divisible by my arbitrary value, BUT it IS near a bound point draw
                 elif x >= UB-0.01:
-                    # t.pendown()
                     # if we are not currently dumping and we should be. Turn the motor and dump
                     if not dump:
                         dump = True
@@ -209,25 +205,20 @@ for j in range(len(initials)):
                 else:
                     theta = 90
                 r = math.sqrt((x + offset - 1) ** 2 + (y + yoff) ** 2)
-                #if theta < 0:
+                # if theta < 0:
                     # kit.servo[1].angle = 180 + theta
                     # print("theta " + str(180 + theta))
-                #else:
+                # else:
                     # kit.servo[1].angle = theta
                     # print("theta " + str(theta))
                 # print("theta " + str(theta))
                 # kit.servo[3].angle = 180 * ((r) / rlimit)
-                # t.goto(x * 100 + offset, y * 100)
-                # t.penup()
                 if round(y*100) % round(18*scaler*2) == 0:
-                    # t.pendown()
                     if not dump:
                         # kit.servo[2].angle = 0
                         dump = True
                         yinc = 0.00005
                 elif y >= UB-0.02:
-                    print("here")
-                    # t.pendown()
                     if not dump:
                         dump = True
                         yinc = 0.00005
@@ -257,11 +248,8 @@ for j in range(len(initials)):
                 function[1] = function[1].replace("x", "x/" + str(scaler))
                 while x <= UB:
                     y = eval(function[1])*scaler
-                    # t.goto(x * 100 + offset, y * 100)
-                    # t.penup()
                     # kit.servo[2].angle = 180
                     if round(x * 100) % 25 == 0:
-                        # t.pendown()
                         if not dump:
                             # kit.servo[2].angle = 0
                             dump = True
@@ -283,8 +271,6 @@ for j in range(len(initials)):
                 function[1] = function[1].replace("y", "y/" + str(scaler))
                 while y <= UB:
                     x = eval(function[1])*scaler
-                    # t.goto(x * 100 + offset, y * 100)
-                    # t.penup()
                     if round(y * 100) % 25 == 0:
                         if not dump:
                             # kit.servo[2].angle = 0
@@ -302,13 +288,10 @@ for j in range(len(initials)):
                             yinc = 0.0002
         # go to the next vector of the function
         i += 1
-        # t.penup()
     # offset your letter so you can write the next letter not on top of the prior
     # offset = offset + max*100 + 50
     yoff -= (scaler*2 + 1)
     # reset the theta motor to 90
     # go to the next letter
     j += 1
-# t.penup()
-# t.goto(0,0)
 # turtle.exitonclick()
