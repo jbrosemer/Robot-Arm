@@ -176,11 +176,11 @@ for j in range(len(initials)):
                     # if dump is still true rotate the motor back and stop dump
                     # we move faster through this loop because we do not slow to dump
                     if dump:
-                        # print("r " + str(180 * ((r) / rlimit)))
-                        # if theta < 0:
-                        #    print("theta " + str(180 + theta))
-                        # else:
-                        #     print("theta " + str(theta))
+                        print("r " + str(180 * ((r) / rlimit)))
+                        if theta < 0:
+                            print("theta " + str(180 + theta))
+                        else:
+                            print("theta " + str(theta))
                         print("y " + str(y+yoff))
                         print("x " + str(x + offset -1))
                         kit.servo[2].angle = 180
