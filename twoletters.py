@@ -221,7 +221,7 @@ for j in range(len(initials)):
                 kit.servo[3].angle = 180 * ((r) / rlimit)
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
-                if round(y*100) % 18*scaler == 0:
+                if round(y*100) % (18*scaler*2) == 0:
                     # t.pendown()
                     if not dump:
                         kit.servo[2].angle = 0
