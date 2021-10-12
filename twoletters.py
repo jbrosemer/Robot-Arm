@@ -236,10 +236,10 @@ for j in range(len(initials)):
                 else:
                     if dump:
                         print("r " + str(180 * ((r) / rlimit)))
-                        # if theta < 0:
-                        #    print("theta " + str(180 + theta))
-                        # else:
-                        #     print("theta " + str(theta))
+                        if theta < 0:
+                            print("theta " + str(180 + theta))
+                        else:
+                            print("theta " + str(theta))
                         print("y " + str(y+yoff))
                         print("x " + str(x + offset - 1))
                         kit.servo[2].angle = 180
