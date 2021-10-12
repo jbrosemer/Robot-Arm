@@ -197,7 +197,7 @@ for j in range(len(initials)):
             function[1] = function[1].replace("y", "y/" + str(scaler))
             while y <= UB:
                 x = eval(function[1])*scaler
-                if (x*100 + offset) != 0:
+                if (x + offset) != 0:
                     theta = math.atan(((y+yoff))/(x + offset))*180/math.pi
                 else:
                     theta = 90
