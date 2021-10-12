@@ -22,9 +22,9 @@ kit.servo[3].angle = 0
 initials = (input('Please input what you want to write: '))
 # defines the scaler variable, defines the size of the letter you are writing
         # going below 0 is not recommended
-scaler = 1
+scaler = 2
 # offset of the letters is based on the number of letters you want to write
-offset = -0.5
+offset = -1
 #defines basic turtle display variables
 # t.speed(1)
 # t.pensize(10)
