@@ -22,7 +22,7 @@ kit.servo[3].angle = 0
 initials = (input('Please input what you want to write: '))
 # defines the scaler variable, defines the size of the letter you are writing
         # going below 0 is not recommended
-scaler = 1
+scaler = 1.2
 # offset of the letters is based on the number of letters you want to write
 offset = -(scaler/2)
 #defines basic turtle display variables
@@ -148,7 +148,7 @@ for j in range(len(initials)):
                 # AKA if the x value is divisible by some arbitrary value draw otherwise don't
                 # I could have done the math for the length of the vector
                 # and set some variable for how many dots I want to draw but I didn't bother
-                if round(x*100) % (18*scaler*2) == 0:
+                if round(x*100) % round(18*scaler*2) == 0:
 
                     # t.pendown()
                     # if we are not currently dumping and we should be. Turn the motor and dump
@@ -221,7 +221,7 @@ for j in range(len(initials)):
                 kit.servo[3].angle = 180 * ((r) / rlimit)
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
-                if round(y*100) % (18*scaler*2) == 0:
+                if round(y*100) % round(18*scaler*2) == 0:
                     # t.pendown()
                     if not dump:
                         kit.servo[2].angle = 0
