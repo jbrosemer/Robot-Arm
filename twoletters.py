@@ -20,8 +20,11 @@ kit.servo[1].angle = 90
 kit.servo[3].angle = 0
 
 initials = (input('Please input what you want to write: '))
+# defines the scaler variable, defines the size of the letter you are writing
+        # going below 0 is not recommended
+scaler = 2
 # offset of the letters is based on the number of letters you want to write
-offset = 0
+offset = -(scaler/2)
 #defines basic turtle display variables
 # t.speed(1)
 # t.pensize(10)
@@ -33,7 +36,7 @@ file = open("alphabet.txt")
 # reads the alphabet file into a string
 alphabet = file.read()
 # y offset from paper
-yoff = 11
+yoff = 8
 # r extension to max position
 rlimit = 14
 
@@ -89,10 +92,6 @@ for j in range(len(initials)):
         else:
             LB = 0
             UB = float(lowerbound[1])
-
-        # defines the scaler variable, defines the size of the letter you are writing
-        # going below 0 is not recommended
-        scaler = 2
 
         # scales the bounds by the scaler variable
         LB = float(scaler*LB)
