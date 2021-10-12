@@ -223,12 +223,12 @@ for j in range(len(initials)):
                     if not dump:
                         kit.servo[2].angle = 0
                         dump = True
-                        yinc = 0.001
+                        yinc = 0.00005
                 elif y >= UB-0.02:
                     # t.pendown()
                     if not dump:
                         dump = True
-                        yinc = 0.001
+                        yinc = 0.00005
                     kit.servo[2].angle = 0
                 else:
                     if dump:
