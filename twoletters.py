@@ -206,8 +206,8 @@ for j in range(len(initials)):
             function[1] = function[1].replace("y", "y/" + str(scaler))
             while y <= UB:
                 x = eval(function[1])*scaler
-                if (x + offset - 1) != 0:
-                    theta = math.atan(((y+yoff))/(x + offset - 1))*180/math.pi
+                if (x+offset-1) != 0:
+                    theta = math.atan(((y + yoff))/(x + offset - 1))*180/math.pi
                 else:
                     theta = 90
                 r = math.sqrt((x + offset - 1) ** 2 + (y + yoff) ** 2)
@@ -306,9 +306,8 @@ for j in range(len(initials)):
         # t.penup()
     # offset your letter so you can write the next letter not on top of the prior
     # offset = offset + max*100 + 50
-    yoff -= (scaler*4 + 1)
+    yoff -= (scaler*2 + 1)
     # reset the theta motor to 90
-    kit.servo[1].angle = 90
     # go to the next letter
     j += 1
 # t.penup()
