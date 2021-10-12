@@ -32,12 +32,10 @@ offset = -4
 file = open("alphabet.txt")
 # reads the alphabet file into a string
 alphabet = file.read()
-# x offset from origin
-xoff = 0
 # y offset from paper
 yoff = 4
 # r extension to max position
-rlimit = 14
+rlimit = 11+yoff
 
 # all of the letters in the alphabet
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']

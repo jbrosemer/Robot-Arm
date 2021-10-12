@@ -4,29 +4,29 @@
 # To note the turtle code runs much slower than the actual motors.
 # Displaying the letters slows down the computation by a lot.
 
-import turtle
+# import turtle
 import math
-# from adafruit_servokit import ServoKit
-t = turtle.Turtle()
+from adafruit_servokit import ServoKit
+# t = turtle.Turtle()
 # declaring servo kit
-# kit = ServoKit(channels=16)
+kit = ServoKit(channels=16)
 # ask the command line what to write
-# kit.servo[2].set_pulse_width_range(600, 3600)
-# kit.servo[2].angle = 180
+kit.servo[2].set_pulse_width_range(600, 3600)
+kit.servo[2].angle = 180
 
 # theta direction servo
-# kit.servo[1].angle = 90
+kit.servo[1].angle = 90
 # r direction servo
-# kit.servo[3].angle = 0
+kit.servo[3].angle = 0
 
 initials = (input('Please input what you want to write: '))
 # offset of the letters is based on the number of letters you want to write
 offset = -4
 #defines basic turtle display variables
-t.speed(1)
-t.pensize(10)
-t.penup()
-t.goto(0, 0)
+# t.speed(1)
+# t.pensize(10)
+# t.penup()
+# t.goto(0, 0)
 
 # opens the alphabet vector file
 file = open("alphabet.txt")
@@ -61,12 +61,12 @@ for j in range(len(initials)):
     # vectors is the string of all the functions that compose the letter you chose
     vectors = letters[index].split(',')
     # sends turtle to your predefined offset and the 0 y position
-    t.goto(offset, 0)
+    # t.goto(offset, 0)
 
     max = 0
     for i in range(len(vectors)):
 
-        t.penup()
+        # t.penup()
         # beginning of the overall loop that loops through each vector
         # the next 16 lines find the bounds of each vector each time through the loop.
         # all it is doing is parsing the vector components of each letter
@@ -130,18 +130,18 @@ for j in range(len(initials)):
                 # half of the plane the resulting angle is negative
                 # this is fixed by adding the negative angle to 180.
                 # so the motor successfully can rotate from 0 degrees to 180
-                #if theta < 0:
-                    #kit.servo[1].angle = 180 + theta
-                #else:
-                    #kit.servo[1].angle = theta
+                if theta < 0:
+                    kit.servo[1].angle = 180 + theta
+                else:
+                    kit.servo[1].angle = theta
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
-                # kit.servo[3].angle = 180 * ((r) / rlimit)
+                kit.servo[3].angle = 180 * ((r) / rlimit)
                 # kit.servo[4].angle = 180-(180 * ((r * 3) / rlimit))
                 print("r " + str(180 * ((r) / rlimit)))
 
 
-                t.goto(x*100 + offset, y*100)
-                t.penup()
+                # t.goto(x*100 + offset, y*100)
+                # t.penup()
 
                 # this block is how dots are written rather than straight lines
                 # AKA if the x value is divisible by some arbitrary value draw otherwise don't
@@ -149,18 +149,18 @@ for j in range(len(initials)):
                 # and set some variable for how many dots I want to draw but I didn't bother
                 if round(x*100) % 18 == 0:
 
-                    t.pendown()
+                    # t.pendown()
                     # if we are not currently dumping and we should be. Turn the motor and dump
                     if not dump:
 
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                         dump = True
                         # slow down the incrementation when we are supposed to be dumping.
                         # this allows for all the salt to come out
                         xinc = 0.00003
                 # if the number is not divisible by my arbitrary value, BUT it IS near a bound point draw
                 elif x >= UB-0.01:
-                    t.pendown()
+                    # t.pendown()
                     # if we are not currently dumping and we should be. Turn the motor and dump
                     if not dump:
                         dump = True
@@ -168,13 +168,13 @@ for j in range(len(initials)):
                         # this needs to be smaller than the previous slow incrementation
                         # because on curves the bound points tend to require a lot of detail.
                         xinc = 0.00003
-                    # kit.servo[2].angle = 0
+                    kit.servo[2].angle = 0
                 # if neither of the prior cases are true we should not be dumping
                 else:
                     # if dump is still true rotate the motor back and stop dump
                     # we move faster through this loop because we do not slow to dump
                     if dump:
-                        # kit.servo[2].angle = 180
+                        kit.servo[2].angle = 180
                         dump = False
                         xinc = 0.0005
 
@@ -202,31 +202,31 @@ for j in range(len(initials)):
                 else:
                     theta = 90
                 r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
-                # if theta < 0:
-                    # kit.servo[1].angle = 180 + theta
-                # else:
-                    # kit.servo[1].angle = theta
+                if theta < 0:
+                    kit.servo[1].angle = 180 + theta
+                else:
+                    kit.servo[1].angle = theta
                 # ("r " + str(r))
                 # print("theta " + str(theta))
-                # kit.servo[3].angle = 180 * ((r) / rlimit)
+                kit.servo[3].angle = 180 * ((r) / rlimit)
                 # kit.servo[4].angle = 180 - (180 * ((r * 3) / rlimit))
-                t.goto(x * 100 + offset, y * 100)
-                t.penup()
+                # t.goto(x * 100 + offset, y * 100)
+                # t.penup()
                 if round(y*100) % 25 == 0:
-                    t.pendown()
+                    # t.pendown()
                     if not dump:
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                         dump = True
                         yinc = 0.0004
                 elif y >= UB-0.02:
-                    t.pendown()
+                    # t.pendown()
                     if not dump:
                         dump = True
                         yinc = 0.0004
-                    # kit.servo[2].angle = 0
+                    kit.servo[2].angle = 0
                 else:
                     if dump:
-                        # kit.servo[2].angle = 180
+                        kit.servo[2].angle = 180
                         dump = False
                         yinc = 0.00004
                 # increments by the y value decided
@@ -242,23 +242,23 @@ for j in range(len(initials)):
                 function[1] = function[1].replace("x", "x/" + str(scaler))
                 while x <= UB:
                     y = eval(function[1])*scaler
-                    t.goto(x * 100 + offset, y * 100)
-                    t.penup()
-                    # kit.servo[2].angle = 180
+                    # t.goto(x * 100 + offset, y * 100)
+                    # t.penup()
+                    kit.servo[2].angle = 180
                     if round(x * 100) % 25 == 0:
-                        t.pendown()
+                        # t.pendown()
                         if not dump:
-                            # kit.servo[2].angle = 0
+                            kit.servo[2].angle = 0
                             dump = True
                             xinc = 0.0001
                     elif x >= UB - 0.02:
                         if not dump:
                             dump = True
                             xinc = 0.0001
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                     else:
                         if dump:
-                            # kit.servo[2].angle = 180
+                            kit.servo[2].angle = 180
                             dump = False
                             xinc = 0.00001
                     if (x > max):
@@ -268,32 +268,33 @@ for j in range(len(initials)):
                 function[1] = function[1].replace("y", "y/" + str(scaler))
                 while y <= UB:
                     x = eval(function[1])*scaler
-                    t.goto(x * 100 + offset, y * 100)
-                    t.penup()
+                    # t.goto(x * 100 + offset, y * 100)
+                    # t.penup()
                     if round(y * 100) % 25 == 0:
                         if not dump:
-                            # kit.servo[2].angle = 0
+                            kit.servo[2].angle = 0
                             dump = True
                             yinc = 0.0001
                     elif y >= UB - 0.02:
                         if not dump:
                             dump = True
                             yinc = 0.0001
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                     else:
                         if dump:
-                            # kit.servo[2].angle = 180
+                            kit.servo[2].angle = 180
                             dump = False
                             yinc = 0.0002
         # go to the next vector of the function
         i += 1
-        t.penup()
+        # t.penup()
     # offset your letter so you can write the next letter not on top of the prior
-    offset = offset + max*100 + 50
+    # offset = offset + max*100 + 50
+    yoff -= (scaler*2 + 1)
     # reset the theta motor to 90
-    # kit.servo[1].angle = 90
+    kit.servo[1].angle = 90
     # go to the next letter
     j += 1
-t.penup()
-t.goto(0,0)
-turtle.exitonclick()
+# t.penup()
+# t.goto(0,0)
+# turtle.exitonclick()
