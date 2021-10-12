@@ -21,7 +21,7 @@ kit.servo[3].angle = 0
 
 initials = (input('Please input what you want to write: '))
 # offset of the letters is based on the number of letters you want to write
-offset = -2
+offset = -4
 #defines basic turtle display variables
 # t.speed(1)
 # t.pensize(10)
@@ -33,7 +33,7 @@ file = open("alphabet.txt")
 # reads the alphabet file into a string
 alphabet = file.read()
 # y offset from paper
-yoff = 6
+yoff = 9
 # r extension to max position
 rlimit = 14
 
