@@ -135,9 +135,9 @@ for j in range(len(initials)):
                 else:
                     kit.servo[1].angle = theta
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
-                kit.servo[3].angle = 180 * ((r*3) / rlimit)
+                kit.servo[3].angle = 180 * ((r) / rlimit)
                 # kit.servo[4].angle = 180-(180 * ((r * 3) / rlimit))
-                print("r " + str(180 * ((r*3) / rlimit)))
+                print("r " + str(180 * ((r) / rlimit)))
 
 
                 # t.goto(x*100 + offset, y*100)
@@ -208,7 +208,7 @@ for j in range(len(initials)):
                     kit.servo[1].angle = theta
                 # ("r " + str(r))
                 # print("theta " + str(theta))
-                kit.servo[3].angle = 180 * ((r*3) / rlimit)
+                kit.servo[3].angle = 180 * ((r) / rlimit)
                 # kit.servo[4].angle = 180 - (180 * ((r * 3) / rlimit))
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
