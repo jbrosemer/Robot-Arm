@@ -154,7 +154,7 @@ for j in range(len(initials)):
                     # if we are not currently dumping and we should be. Turn the motor and dump
                     if not dump:
 
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                         dump = True
                         # slow down the incrementation when we are supposed to be dumping.
                         # this allows for all the salt to come out
@@ -170,7 +170,7 @@ for j in range(len(initials)):
                         # this needs to be smaller than the previous slow incrementation
                         # because on curves the bound points tend to require a lot of detail.
                         xinc = 0.00003
-                    # kit.servo[2].angle = 0
+                    kit.servo[2].angle = 0
                 # if neither of the prior cases are true we should not be dumping
                 else:
                     # if dump is still true rotate the motor back and stop dump
@@ -178,13 +178,12 @@ for j in range(len(initials)):
                     if dump:
                         print("r " + str(180 * ((r) / rlimit)))
                         if theta < 0:
-                            print("theta " + str(theta))
                             print("theta " + str(180 + theta))
                         else:
                             print("theta " + str(theta))
                         print("y " + str(y+yoff))
                         print("x " + str(x + offset -1))
-                        # kit.servo[2].angle = 180
+                        kit.servo[2].angle = 180
                         dump = False
                         xinc = 0.0005
 
@@ -213,19 +212,19 @@ for j in range(len(initials)):
                     theta = 90
                 r = math.sqrt((x + offset - 1) ** 2 + (y + yoff) ** 2)
                 if theta < 0:
-                    # kit.servo[1].angle = 180 + theta
+                    kit.servo[1].angle = 180 + theta
                     # print("theta " + str(180 + theta))
                 else:
-                    # kit.servo[1].angle = theta
+                    kit.servo[1].angle = theta
                     # print("theta " + str(theta))
                 # print("theta " + str(theta))
-                # kit.servo[3].angle = 180 * ((r) / rlimit)
+                kit.servo[3].angle = 180 * ((r) / rlimit)
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
                 if round(y*100) % (18*scaler*2) == 0:
                     # t.pendown()
                     if not dump:
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                         dump = True
                         yinc = 0.00005
                 elif y >= UB-0.02:
@@ -234,7 +233,7 @@ for j in range(len(initials)):
                     if not dump:
                         dump = True
                         yinc = 0.00005
-                    # kit.servo[2].angle = 0
+                    kit.servo[2].angle = 0
                 else:
                     if dump:
                         print("r " + str(180 * ((r) / rlimit)))
@@ -244,7 +243,7 @@ for j in range(len(initials)):
                             print("theta " + str(theta))
                         print("y " + str(y+yoff))
                         print("x " + str(x + offset - 1))
-                        # kit.servo[2].angle = 180
+                        kit.servo[2].angle = 180
                         dump = False
                         yinc = 0.0004
                 # increments by the y value decided
@@ -262,21 +261,21 @@ for j in range(len(initials)):
                     y = eval(function[1])*scaler
                     # t.goto(x * 100 + offset, y * 100)
                     # t.penup()
-                    # kit.servo[2].angle = 180
+                    kit.servo[2].angle = 180
                     if round(x * 100) % 25 == 0:
                         # t.pendown()
                         if not dump:
-                            # kit.servo[2].angle = 0
+                            kit.servo[2].angle = 0
                             dump = True
                             xinc = 0.0001
                     elif x >= UB - 0.02:
                         if not dump:
                             dump = True
                             xinc = 0.0001
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                     else:
                         if dump:
-                            # kit.servo[2].angle = 180
+                            kit.servo[2].angle = 180
                             dump = False
                             xinc = 0.00001
                     if (x > max):
@@ -290,17 +289,17 @@ for j in range(len(initials)):
                     # t.penup()
                     if round(y * 100) % 25 == 0:
                         if not dump:
-                            # kit.servo[2].angle = 0
+                            kit.servo[2].angle = 0
                             dump = True
                             yinc = 0.0001
                     elif y >= UB - 0.02:
                         if not dump:
                             dump = True
                             yinc = 0.0001
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                     else:
                         if dump:
-                            # kit.servo[2].angle = 180
+                            kit.servo[2].angle = 180
                             dump = False
                             yinc = 0.0002
         # go to the next vector of the function
