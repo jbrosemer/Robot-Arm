@@ -11,20 +11,20 @@ from adafruit_servokit import ServoKit
 # declaring servo kit
 kit = ServoKit(channels=16)
 # ask the command line what to write
-kit.servo[2].set_pulse_width_range(600, 3600)
-kit.servo[2].angle = 180
+# kit.servo[2].set_pulse_width_range(600, 3600)
+# kit.servo[2].angle = 180
 
 # theta direction servo
-kit.servo[1].angle = 90
+# kit.servo[1].angle = 90
 # r direction servo
-kit.servo[3].angle = 0
+# kit.servo[3].angle = 0
 
 initials = (input('Please input what you want to write: '))
 # defines the scaler variable, defines the size of the letter you are writing
         # going below 0 is not recommended
 scaler = 2
 # offset of the letters is based on the number of letters you want to write
-offset = -(scaler/2)
+offset = -(scaler)
 #defines basic turtle display variables
 # t.speed(1)
 # t.pensize(10)
@@ -119,25 +119,25 @@ for j in range(len(initials)):
 
                 # if the x position is 0 the math cannot be calculated without an error
                 # this if just basically stops dividing by 0. Will need to be changed when the offset changes
-                if (x+offset-1) != 0:
-                    theta = math.atan(((y + yoff))/(x + offset - 1))*180/math.pi
+                if (x+offset) != 0:
+                    theta = math.atan(((y + yoff))/(x + offset))*180/math.pi
                 # if divide by 0 would occur set theta to pi/2
                 else:
                     theta = 90
                 # r is basic polar sqrt of x^2 + y^2 the offsets
                 # are needed to define position based on them
-                r = math.sqrt(((x + offset - 1)) ** 2 + (y + yoff) ** 2)
+                r = math.sqrt(((x + offset)) ** 2 + (y + yoff) ** 2)
                 # when some of the letter is in the left
                 # half of the plane the resulting angle is negative
                 # this is fixed by adding the negative angle to 180.
                 # so the motor successfully can rotate from 0 degrees to 180
-                if theta < 0:
-                    kit.servo[1].angle = 180 + theta
-                else:
-                    kit.servo[1].angle = theta
+                # if theta < 0:
+                    # kit.servo[1].angle = 180 + theta
+                # else:
+                    # kit.servo[1].angle = theta
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
-                kit.servo[3].angle = 180 * ((r) / rlimit)
-                # kit.servo[4].angle = 180-(180 * ((r * 3) / rlimit))
+                # kit.servo[3].angle = 180 * ((r) / rlimit)
+                # # kit.servo[4].angle = 180-(180 * ((r * 3) / rlimit))
                 # print("r " + str(180 * ((r) / rlimit)))
 
 
@@ -154,7 +154,7 @@ for j in range(len(initials)):
                     # if we are not currently dumping and we should be. Turn the motor and dump
                     if not dump:
 
-                        kit.servo[2].angle = 0
+                        # kit.servo[2].angle = 0
                         dump = True
                         # slow down the incrementation when we are supposed to be dumping.
                         # this allows for all the salt to come out
@@ -170,7 +170,7 @@ for j in range(len(initials)):
                         # this needs to be smaller than the previous slow incrementation
                         # because on curves the bound points tend to require a lot of detail.
                         xinc = 0.00003
-                    kit.servo[2].angle = 0
+                    # kit.servo[2].angle = 0
                 # if neither of the prior cases are true we should not be dumping
                 else:
                     # if dump is still true rotate the motor back and stop dump
@@ -182,8 +182,8 @@ for j in range(len(initials)):
                         else:
                             print("theta " + str(theta))
                         print("y " + str(y+yoff))
-                        print("x " + str(x + offset -1))
-                        kit.servo[2].angle = 180
+                        print("x " + str(x + offset))
+                        # kit.servo[2].angle = 180
                         dump = False
                         xinc = 0.0005
 
@@ -206,25 +206,25 @@ for j in range(len(initials)):
             function[1] = function[1].replace("y", "y/" + str(scaler))
             while y <= UB:
                 x = eval(function[1])*scaler
-                if (x+offset-1) != 0:
-                    theta = math.atan(((y + yoff))/(x + offset - 1))*180/math.pi
+                if (x+offset) != 0:
+                    theta = math.atan(((y + yoff))/(x + offset))*180/math.pi
                 else:
                     theta = 90
                 r = math.sqrt((x + offset - 1) ** 2 + (y + yoff) ** 2)
-                if theta < 0:
-                    kit.servo[1].angle = 180 + theta
+                #if theta < 0:
+                    # kit.servo[1].angle = 180 + theta
                     # print("theta " + str(180 + theta))
-                else:
-                    kit.servo[1].angle = theta
+                #else:
+                    # kit.servo[1].angle = theta
                     # print("theta " + str(theta))
                 # print("theta " + str(theta))
-                kit.servo[3].angle = 180 * ((r) / rlimit)
+                # kit.servo[3].angle = 180 * ((r) / rlimit)
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
                 if round(y*100) % round(18*scaler*2) == 0:
                     # t.pendown()
                     if not dump:
-                        kit.servo[2].angle = 0
+                        # kit.servo[2].angle = 0
                         dump = True
                         yinc = 0.00005
                 elif y >= UB-0.02:
@@ -233,7 +233,7 @@ for j in range(len(initials)):
                     if not dump:
                         dump = True
                         yinc = 0.00005
-                    kit.servo[2].angle = 0
+                    # kit.servo[2].angle = 0
                 else:
                     if dump:
                         print("r " + str(180 * ((r) / rlimit)))
@@ -242,8 +242,8 @@ for j in range(len(initials)):
                         else:
                             print("theta " + str(theta))
                         print("y " + str(y+yoff))
-                        print("x " + str(x + offset - 1))
-                        kit.servo[2].angle = 180
+                        print("x " + str(x + offset))
+                        # kit.servo[2].angle = 180
                         dump = False
                         yinc = 0.0004
                 # increments by the y value decided
@@ -261,21 +261,21 @@ for j in range(len(initials)):
                     y = eval(function[1])*scaler
                     # t.goto(x * 100 + offset, y * 100)
                     # t.penup()
-                    kit.servo[2].angle = 180
+                    # kit.servo[2].angle = 180
                     if round(x * 100) % 25 == 0:
                         # t.pendown()
                         if not dump:
-                            kit.servo[2].angle = 0
+                            # kit.servo[2].angle = 0
                             dump = True
                             xinc = 0.0001
                     elif x >= UB - 0.02:
                         if not dump:
                             dump = True
                             xinc = 0.0001
-                        kit.servo[2].angle = 0
+                        # kit.servo[2].angle = 0
                     else:
                         if dump:
-                            kit.servo[2].angle = 180
+                            # kit.servo[2].angle = 180
                             dump = False
                             xinc = 0.00001
                     if (x > max):
@@ -289,17 +289,17 @@ for j in range(len(initials)):
                     # t.penup()
                     if round(y * 100) % 25 == 0:
                         if not dump:
-                            kit.servo[2].angle = 0
+                            # kit.servo[2].angle = 0
                             dump = True
                             yinc = 0.0001
                     elif y >= UB - 0.02:
                         if not dump:
                             dump = True
                             yinc = 0.0001
-                        kit.servo[2].angle = 0
+                        # kit.servo[2].angle = 0
                     else:
                         if dump:
-                            kit.servo[2].angle = 180
+                            # kit.servo[2].angle = 180
                             dump = False
                             yinc = 0.0002
         # go to the next vector of the function
