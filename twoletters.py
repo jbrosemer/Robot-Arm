@@ -137,7 +137,6 @@ for j in range(len(initials)):
                     # kit.servo[1].angle = theta
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
                 # kit.servo[3].angle = 180 * ((r) / rlimit)
-                # # kit.servo[4].angle = 180-(180 * ((r * 3) / rlimit))
                 # print("r " + str(180 * ((r) / rlimit)))
 
 
@@ -161,7 +160,6 @@ for j in range(len(initials)):
                         xinc = 0.00003
                 # if the number is not divisible by my arbitrary value, BUT it IS near a bound point draw
                 elif x >= UB-0.01:
-                    print("here")
                     # t.pendown()
                     # if we are not currently dumping and we should be. Turn the motor and dump
                     if not dump:
