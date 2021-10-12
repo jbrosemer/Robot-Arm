@@ -121,14 +121,14 @@ for j in range(len(initials)):
 
                 # if the x position is 0 the math cannot be calculated without an error
                 # this if just basically stops dividing by 0. Will need to be changed when the offset changes
-                if x != 0:
-                    theta = math.atan(((y + yoff))/(x + offset))*180/math.pi
+                if (x+offset-1) != 0:
+                    theta = math.atan(((y + yoff))/(x + offset - 1))*180/math.pi
                 # if divide by 0 would occur set theta to pi/2
                 else:
                     theta = 90
                 # r is basic polar sqrt of x^2 + y^2 the offsets
                 # are needed to define position based on them
-                r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
+                r = math.sqrt(((x + offset - 1)) ** 2 + (y + yoff) ** 2)
                 # when some of the letter is in the left
                 # half of the plane the resulting angle is negative
                 # this is fixed by adding the negative angle to 180.
@@ -207,11 +207,11 @@ for j in range(len(initials)):
             function[1] = function[1].replace("y", "y/" + str(scaler))
             while y <= UB:
                 x = eval(function[1])*scaler
-                if (x + offset) != 0:
-                    theta = math.atan(((y+yoff))/(x + offset))*180/math.pi
+                if (x + offset - 1) != 0:
+                    theta = math.atan(((y+yoff))/(x + offset - 1))*180/math.pi
                 else:
                     theta = 90
-                r = math.sqrt((x + offset / 100) ** 2 + (y + yoff) ** 2)
+                r = math.sqrt((x + offset - 1) ** 2 + (y + yoff) ** 2)
                 if theta < 0:
                     kit.servo[1].angle = 180 + theta
                     # print("theta " + str(180 + theta))
@@ -306,7 +306,7 @@ for j in range(len(initials)):
         # t.penup()
     # offset your letter so you can write the next letter not on top of the prior
     # offset = offset + max*100 + 50
-    yoff -= (scaler*2 + 1)
+    yoff -= (scaler*4 + 1)
     # reset the theta motor to 90
     kit.servo[1].angle = 90
     # go to the next letter
