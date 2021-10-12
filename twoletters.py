@@ -92,7 +92,7 @@ for j in range(len(initials)):
 
         # defines the scaler variable, defines the size of the letter you are writing
         # going below 0 is not recommended
-        scaler = 1
+        scaler = 2
 
         # scales the bounds by the scaler variable
         LB = float(scaler*LB)
@@ -220,7 +220,6 @@ for j in range(len(initials)):
                     # print("theta " + str(theta))
                 # print("theta " + str(theta))
                 kit.servo[3].angle = 180 * ((r) / rlimit)
-                # print("r " + str(180 * ((r) / rlimit)))
                 # t.goto(x * 100 + offset, y * 100)
                 # t.penup()
                 if round(y*100) % 25 == 0:
@@ -237,7 +236,7 @@ for j in range(len(initials)):
                     kit.servo[2].angle = 0
                 else:
                     if dump:
-                        # print("r " + str(180 * ((r) / rlimit)))
+                        print("r " + str(180 * ((r) / rlimit)))
                         # if theta < 0:
                         #    print("theta " + str(180 + theta))
                         # else:
