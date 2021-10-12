@@ -12,11 +12,13 @@ from adafruit_servokit import ServoKit
 kit = ServoKit(channels=16)
 # ask the command line what to write
 kit.servo[2].set_pulse_width_range(600, 3600)
-kit.servo[2].angle = 170
+kit.servo[2] = 180
+
 # theta direction servo
 kit.servo[1].angle = 90
 # r direction servo
 kit.servo[3].angle = 0
+
 initials = (input('Please input what you want to write: '))
 # offset of the letters is based on the number of letters you want to write
 offset = -4
