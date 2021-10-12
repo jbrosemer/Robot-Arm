@@ -179,6 +179,7 @@ for j in range(len(initials)):
                     # if dump is still true rotate the motor back and stop dump
                     # we move faster through this loop because we do not slow to dump
                     if dump:
+                        print("r " + str(180 * ((r) / rlimit)))
                         kit.servo[2].angle = 180
                         dump = False
                         xinc = 0.0005
