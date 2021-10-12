@@ -21,7 +21,7 @@ kit.servo[3].angle = 0
 
 initials = (input('Please input what you want to write: '))
 # offset of the letters is based on the number of letters you want to write
-offset = -4
+offset = -2
 #defines basic turtle display variables
 # t.speed(1)
 # t.pensize(10)
@@ -36,6 +36,8 @@ alphabet = file.read()
 yoff = 6
 # r extension to max position
 rlimit = 14
+
+yinc = 0.0004
 
 # all of the letters in the alphabet
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
