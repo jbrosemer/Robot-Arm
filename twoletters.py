@@ -113,6 +113,8 @@ for j in range(len(initials)):
                 # evaluates the function and sets it equal to y
                 # also to scale a y function you must multiply the result of the evaluation by the scaler
                 y = scaler * eval(function[1])
+                print("y " + str(y))
+                print("x " + str(x))
                 # any scaling needed is finished now.
 
                 # if the x position is 0 the math cannot be calculated without an error
@@ -131,14 +133,14 @@ for j in range(len(initials)):
                 # so the motor successfully can rotate from 0 degrees to 180
                 if theta < 0:
                     kit.servo[1].angle = 180 + theta
-                    print("theta " + str(180 + theta))
+                    # print("theta " + str(180 + theta))
                 else:
                     kit.servo[1].angle = theta
-                    print("theta " + str(theta))
+                    # print("theta " + str(theta))
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
                 kit.servo[3].angle = 180 * ((r) / rlimit)
                 # kit.servo[4].angle = 180-(180 * ((r * 3) / rlimit))
-                print("r " + str(180 * ((r) / rlimit)))
+                # print("r " + str(180 * ((r) / rlimit)))
 
 
                 # t.goto(x*100 + offset, y*100)
