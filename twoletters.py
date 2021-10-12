@@ -22,7 +22,7 @@ kit.servo[3].angle = 0
 initials = (input('Please input what you want to write: '))
 # defines the scaler variable, defines the size of the letter you are writing
         # going below 0 is not recommended
-scaler = 2
+scaler = 1
 # offset of the letters is based on the number of letters you want to write
 offset = -(scaler/2)
 #defines basic turtle display variables
@@ -99,7 +99,6 @@ for j in range(len(initials)):
 
         # this just prints what kind of function is being written. one in terms of y or x
         print(function[0] + " LINE")
-
         # Function Parsing
         # If the function is in terms of y we go here
         if function[0] == 'y':

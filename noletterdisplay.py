@@ -36,7 +36,8 @@ alphabet = file.read()
 yoff = 6
 # r extension to max position
 rlimit = 14
-
+xinc = 0.05
+yinc = 0.05
 # all of the letters in the alphabet
 abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
@@ -90,7 +91,7 @@ for j in range(len(initials)):
 
         # defines the scaler variable, defines the size of the letter you are writing
         # going below 0 is not recommended
-        scaler = 2
+        scaler = 1
 
         # scales the bounds by the scaler variable
         LB = float(scaler*LB)
@@ -157,7 +158,7 @@ for j in range(len(initials)):
                         dump = True
                         # slow down the incrementation when we are supposed to be dumping.
                         # this allows for all the salt to come out
-                        xinc = 0.00003
+                        xinc = 0.0015
                 # if the number is not divisible by my arbitrary value, BUT it IS near a bound point draw
                 elif x >= UB-0.01:
                     t.pendown()
@@ -167,7 +168,7 @@ for j in range(len(initials)):
                         # slow down the incrementation when we are supposed to be dumping.
                         # this needs to be smaller than the previous slow incrementation
                         # because on curves the bound points tend to require a lot of detail.
-                        xinc = 0.00003
+                        xinc = 0.0015
                     # kit.servo[2].angle = 0
                 # if neither of the prior cases are true we should not be dumping
                 else:
@@ -176,7 +177,7 @@ for j in range(len(initials)):
                     if dump:
                         # kit.servo[2].angle = 180
                         dump = False
-                        xinc = 0.0005
+                        xinc = 0.005
 
                 # increment x by the defined x increment.
                 # Essentially the last 40 lines are all to rotate the dump motor and get this value.
@@ -217,18 +218,18 @@ for j in range(len(initials)):
                     if not dump:
                         # kit.servo[2].angle = 0
                         dump = True
-                        yinc = 0.0004
+                        yinc = 0.002
                 elif y >= UB-0.02:
                     t.pendown()
                     if not dump:
                         dump = True
-                        yinc = 0.0004
+                        yinc = 0.002
                     # kit.servo[2].angle = 0
                 else:
                     if dump:
                         # kit.servo[2].angle = 180
                         dump = False
-                        yinc = 0.00004
+                        yinc = 0.004
                 # increments by the y value decided
                 y += yinc
                 # although these are vertical lines. There is still one letter
