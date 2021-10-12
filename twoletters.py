@@ -36,7 +36,7 @@ file = open("alphabet.txt")
 # reads the alphabet file into a string
 alphabet = file.read()
 # y offset from paper
-yoff = 0
+yoff = 1
 # r extension to max position
 rlimit = 13
 
@@ -146,7 +146,7 @@ for j in range(len(initials)):
                 # AKA if the x value is divisible by some arbitrary value draw otherwise don't
                 # I could have done the math for the length of the vector
                 # and set some variable for how many dots I want to draw but I didn't bother
-                if round(x*100) % round(18*scaler*2) == 0:
+                if round(x*100) % round(18*scaler*1.2) == 0:
 
                     # if we are not currently dumping and we should be. Turn the motor and dump
                     if not dump:
@@ -214,7 +214,7 @@ for j in range(len(initials)):
                     # print("theta " + str(theta))
                 # print("theta " + str(theta))
                 kit.servo[3].angle = 180 * ((r) / rlimit)
-                if round(y*100) % round(18*scaler*2) == 0:
+                if round(y*100) % round(18*scaler*1.2) == 0:
                     if not dump:
                         kit.servo[2].angle = 0
                         dump = True
