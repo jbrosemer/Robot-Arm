@@ -132,12 +132,12 @@ for j in range(len(initials)):
                 # half of the plane the resulting angle is negative
                 # this is fixed by adding the negative angle to 180.
                 # so the motor successfully can rotate from 0 degrees to 180
-                # if theta < 0:
-                    # kit.servo[1].angle = 180 + theta
-                # else:
-                    # kit.servo[1].angle = theta
+                if theta < 0:
+                    kit.servo[1].angle = 180 + theta
+                else:
+                    kit.servo[1].angle = theta
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
-                # kit.servo[3].angle = 180 * ((r) / rlimit)
+                kit.servo[3].angle = 180 * ((r) / rlimit)
                 # print("r " + str(180 * ((r) / rlimit)))
 
 
@@ -151,7 +151,7 @@ for j in range(len(initials)):
                     # if we are not currently dumping and we should be. Turn the motor and dump
                     if not dump:
 
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                         dump = True
                         # slow down the incrementation when we are supposed to be dumping.
                         # this allows for all the salt to come out
@@ -165,7 +165,7 @@ for j in range(len(initials)):
                         # this needs to be smaller than the previous slow incrementation
                         # because on curves the bound points tend to require a lot of detail.
                         xinc = 0.00003
-                    # kit.servo[2].angle = 0
+                    kit.servo[2].angle = 0
                 # if neither of the prior cases are true we should not be dumping
                 else:
                     # if dump is still true rotate the motor back and stop dump
@@ -178,7 +178,7 @@ for j in range(len(initials)):
                             print("theta " + str(theta))
                         print("y " + str(y+yoff))
                         print("x " + str(x + offset))
-                        # kit.servo[2].angle = 180
+                        kit.servo[2].angle = 180
                         dump = False
                         xinc = 0.0005
 
@@ -206,24 +206,24 @@ for j in range(len(initials)):
                 else:
                     theta = 90
                 r = math.sqrt((x + offset - 1) ** 2 + (y + yoff) ** 2)
-                # if theta < 0:
-                    # kit.servo[1].angle = 180 + theta
+                if theta < 0:
+                    kit.servo[1].angle = 180 + theta
                     # print("theta " + str(180 + theta))
-                # else:
-                    # kit.servo[1].angle = theta
+                else:
+                    kit.servo[1].angle = theta
                     # print("theta " + str(theta))
                 # print("theta " + str(theta))
-                # kit.servo[3].angle = 180 * ((r) / rlimit)
+                kit.servo[3].angle = 180 * ((r) / rlimit)
                 if round(y*100) % round(18*scaler) == 0:
                     if not dump:
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                         dump = True
                         yinc = 0.00005
                 elif y >= UB-0.02:
                     if not dump:
                         dump = True
                         yinc = 0.00005
-                    # kit.servo[2].angle = 0
+                    kit.servo[2].angle = 0
                 else:
                     if dump:
                         print("r " + str(180 * ((r) / rlimit)))
@@ -233,7 +233,7 @@ for j in range(len(initials)):
                             print("theta " + str(theta))
                         print("y " + str(y+yoff))
                         print("x " + str(x + offset))
-                        # kit.servo[2].angle = 180
+                        kit.servo[2].angle = 180
                         dump = False
                         yinc = 0.0004
                 # increments by the y value decided
@@ -249,20 +249,20 @@ for j in range(len(initials)):
                 function[1] = function[1].replace("x", "x/" + str(scaler))
                 while x <= UB:
                     y = eval(function[1])*scaler
-                    # kit.servo[2].angle = 180
+                    kit.servo[2].angle = 180
                     if round(x * 100) % 25 == 0:
                         if not dump:
-                            # kit.servo[2].angle = 0
+                            kit.servo[2].angle = 0
                             dump = True
                             xinc = 0.0001
                     elif x >= UB - 0.02:
                         if not dump:
                             dump = True
                             xinc = 0.0001
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                     else:
                         if dump:
-                            # kit.servo[2].angle = 180
+                            kit.servo[2].angle = 180
                             dump = False
                             xinc = 0.00001
                     if (x > max):
@@ -274,17 +274,17 @@ for j in range(len(initials)):
                     x = eval(function[1])*scaler
                     if round(y * 100) % 25 == 0:
                         if not dump:
-                            # kit.servo[2].angle = 0
+                            kit.servo[2].angle = 0
                             dump = True
                             yinc = 0.0001
                     elif y >= UB - 0.02:
                         if not dump:
                             dump = True
                             yinc = 0.0001
-                        # kit.servo[2].angle = 0
+                        kit.servo[2].angle = 0
                     else:
                         if dump:
-                            # kit.servo[2].angle = 180
+                            kit.servo[2].angle = 180
                             dump = False
                             yinc = 0.0002
         # go to the next vector of the function
