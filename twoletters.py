@@ -157,15 +157,15 @@ for j in range(len(initials)):
                         # this allows for all the salt to come out
                         xinc = 0.00003
                 # if the number is not divisible by my arbitrary value, BUT it IS near a bound point draw
-                elif x >= UB-0.01:
+                # elif x >= UB-0.01:
                     # if we are not currently dumping and we should be. Turn the motor and dump
-                    if not dump:
-                        dump = True
+                    # if not dump:
+                        # dump = True
                         # slow down the incrementation when we are supposed to be dumping.
                         # this needs to be smaller than the previous slow incrementation
                         # because on curves the bound points tend to require a lot of detail.
-                        xinc = 0.00003
-                    kit.servo[2].angle = 0
+                        # xinc = 0.00003
+                    # kit.servo[2].angle = 0
                 # if neither of the prior cases are true we should not be dumping
                 else:
                     # if dump is still true rotate the motor back and stop dump
