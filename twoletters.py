@@ -24,7 +24,7 @@ initials = (input('Please input what you want to write: '))
         # going below 0 is not recommended
 scaler = 1
 # offset of the letters is based on the number of letters you want to write
-offset = 0.5
+offset = 0
 #defines basic turtle display variables
 # t.speed(1)
 # t.pensize(10)
