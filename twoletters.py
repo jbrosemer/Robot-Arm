@@ -90,7 +90,7 @@ for j in range(len(initials)):
 
         # defines the scaler variable, defines the size of the letter you are writing
         # going below 0 is not recommended
-        scaler = 2
+        scaler = 1
 
         # scales the bounds by the scaler variable
         LB = float(scaler*LB)
