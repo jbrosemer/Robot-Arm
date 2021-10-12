@@ -135,10 +135,8 @@ for j in range(len(initials)):
                 # so the motor successfully can rotate from 0 degrees to 180
                 if theta < 0:
                     kit.servo[1].angle = 180 + theta
-                    # print("theta " + str(180 + theta))
                 else:
                     kit.servo[1].angle = theta
-                    # print("theta " + str(theta))
                 # the r limit defines the distance r CAN travel. if r is the longest distance theta should be 180
                 kit.servo[3].angle = 180 * ((r) / rlimit)
                 # kit.servo[4].angle = 180-(180 * ((r * 3) / rlimit))
@@ -179,11 +177,13 @@ for j in range(len(initials)):
                     # if dump is still true rotate the motor back and stop dump
                     # we move faster through this loop because we do not slow to dump
                     if dump:
-                        print("r " + str(180 * ((r) / rlimit)))
-                        if theta < 0:
-                            print("theta " + str(180 + theta))
-                        else:
-                            print("theta " + str(theta))
+                        # print("r " + str(180 * ((r) / rlimit)))
+                        # if theta < 0:
+                        #    print("theta " + str(180 + theta))
+                        # else:
+                        #     print("theta " + str(theta))
+                        print("y " + str(y+yoff))
+                        print("x " + str(x + offset -1))
                         kit.servo[2].angle = 180
                         dump = False
                         xinc = 0.0005
@@ -237,11 +237,13 @@ for j in range(len(initials)):
                     kit.servo[2].angle = 0
                 else:
                     if dump:
-                        print("r " + str(180 * ((r) / rlimit)))
-                        if theta < 0:
-                            print("theta " + str(180 + theta))
-                        else:
-                            print("theta " + str(theta))
+                        # print("r " + str(180 * ((r) / rlimit)))
+                        # if theta < 0:
+                        #    print("theta " + str(180 + theta))
+                        # else:
+                        #     print("theta " + str(theta))
+                        print("y " + str(y+yoff))
+                        print("x " + str(x + offset - 1))
                         kit.servo[2].angle = 180
                         dump = False
                         yinc = 0.0004
