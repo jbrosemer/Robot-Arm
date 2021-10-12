@@ -12,7 +12,7 @@ from adafruit_servokit import ServoKit
 kit = ServoKit(channels=16)
 # ask the command line what to write
 kit.servo[2].set_pulse_width_range(600, 3600)
-kit.servo[2] = 180
+kit.servo[2].angle = 180
 
 # theta direction servo
 kit.servo[1].angle = 90
