@@ -33,7 +33,7 @@ file = open("alphabet.txt")
 # reads the alphabet file into a string
 alphabet = file.read()
 # y offset from paper
-yoff = 9
+yoff = 11
 # r extension to max position
 rlimit = 14
 
