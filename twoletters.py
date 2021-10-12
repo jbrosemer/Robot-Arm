@@ -99,7 +99,7 @@ for j in range(len(initials)):
         UB = float(scaler*UB)
 
         # this just prints what kind of function is being written. one in terms of y or x
-        print(function[0])
+        print(function[0] + " LINE")
 
         # Function Parsing
         # If the function is in terms of y we go here
