@@ -4,10 +4,8 @@
 # To note the turtle code runs much slower than the actual motors.
 # Displaying the letters slows down the computation by a lot.
 
-# import turtle
 import math
 from adafruit_servokit import ServoKit
-# t = turtle.Turtle()
 # declaring servo kit
 kit = ServoKit(channels=16)
 # ask the command line what to write
@@ -21,15 +19,10 @@ kit.servo[3].angle = 0
 
 initials = (input('Please input what you want to write: '))
 # defines the scaler variable, defines the size of the letter you are writing
-        # going below 0 is not recommended
+# going below 0 is not recommended
 scaler = 1
 # offset of the letters is based on the number of letters you want to write
 offset = -1
-#defines basic turtle display variables
-# t.speed(1)
-# t.pensize(10)
-# t.penup()
-# t.goto(0, 0)
 
 # opens the alphabet vector file
 file = open("alphabet.txt")
@@ -40,6 +33,7 @@ yoff = 1
 # r extension to max position
 rlimit = 13
 
+#initial x and y increments need to be defined
 xinc = 0.00003
 yinc = 0.0004
 
@@ -55,8 +49,8 @@ dump = False
 j = 0
 # loops through all of the letters you said to write
 for j in range(len(initials)):
+    #incrementer through my alphabet matrix
     jj = 0
-    ##
     # loop to find which letter we want to write
     for jj in range(len(abc)):
         if initials[j] == abc[jj]:
@@ -66,9 +60,6 @@ for j in range(len(initials)):
             jj += 1
     # vectors is the string of all the functions that compose the letter you chose
     vectors = letters[index].split(',')
-    # sends turtle to your predefined offset and the 0 y position
-    # t.goto(offset, 0)
-
     max = 0
     for i in range(len(vectors)):
 
