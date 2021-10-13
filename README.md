@@ -1,4 +1,5 @@
 # Robot-Arm
+Project Built by Audrey Balaska, Hanna Khoury, Soham Gaggenappally, and Programmed by Jordyn Brosemer
 # This project was designed to write letters for a robot arm. Rather than parsing an SVG file in python this assumes your end effector is the drawing tool and it is located at the x,y coordinates.
 
 # alphabet.txt is a file composed of equations to write letters in the x,y coordinate plane, with the bottom left of each letter at the origin. 
